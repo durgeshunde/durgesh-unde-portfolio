@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+
+# Source PDFs remain local; the unchanged public copies are in public/assets and public/research.
+DURGESH_UNDE_Resume (1).pdf
+IELTS.pdf
+researchpaperaugust2023.pdf
+researchpaperdecember2024.pdf
+researchpaperdecember22.pdf
+researchpaperfeb2024.pdf
+Researchpaperseptember2025.pdf
