@@ -4,13 +4,14 @@ import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-mot
 import { ArrowDownRight, ArrowUpRight, BrainCircuit, Check, ChevronRight, CircleDot, Download, Mail, Menu, Network, ShieldCheck, Sparkles, X, Zap } from 'lucide-react';
 import './styles.css';
 
-const resumeHref = '/assets/durgesh-unde-resume.pdf';
+const assetBase = import.meta.env.BASE_URL;
+const resumeHref = `${assetBase}assets/durgesh-unde-resume.pdf`;
 
 const research = [
   {
     id: '01', date: 'August 2023', type: 'Research Study', title: 'Enhancing Cybersecurity with Machine Learning-Based Threat Detection',
     short: 'A study of intelligent threat detection systems that use supervised and unsupervised learning to identify malicious patterns, anomalies, and evolving attack vectors.',
-    tags: ['Cybersecurity', 'Threat detection', 'Random Forest', 'Anomaly detection'], accent: 'cyan', pdf: '/research/enhancing-cybersecurity-threat-detection.pdf',
+    tags: ['Cybersecurity', 'Threat detection', 'Random Forest', 'Anomaly detection'], accent: 'cyan', pdf: `${assetBase}research/enhancing-cybersecurity-threat-detection.pdf`,
     question: 'How can machine learning strengthen threat detection beyond static, signature-based security?',
     objectives: ['Improve detection accuracy for known and unknown threats', 'Reduce false alarms and alert fatigue', 'Explore automated response and escalation', 'Evaluate supervised and unsupervised ML approaches'],
     method: 'Literature-led analysis of software-level threat detection, using network traffic, system logs, user behaviour, publicly available datasets, and discussion of practical enterprise implementation.',
@@ -20,7 +21,7 @@ const research = [
   {
     id: '02', date: 'February 2024', type: 'Individual Research Report', title: 'AI in Healthcare Diagnostics: Beyond Human Accuracy',
     short: 'An exploration of deep learning, medical imaging, clinical decision support, and the conditions required for responsible, explainable diagnostic AI.',
-    tags: ['Healthcare AI', 'Deep learning', 'Medical imaging', 'Explainability'], accent: 'amber', pdf: '/research/ai-healthcare-diagnostics.pdf',
+    tags: ['Healthcare AI', 'Deep learning', 'Medical imaging', 'Explainability'], accent: 'amber', pdf: `${assetBase}research/ai-healthcare-diagnostics.pdf`,
     question: 'Where can AI-assisted diagnostics exceed average human performance, and what must accompany that capability?',
     objectives: ['Trace the evolution from rule-based systems to deep learning', 'Examine imaging, oncology, pathology, and clinical decision support', 'Consider bias, data quality, explainability, and regulation', 'Map future directions such as multimodal and federated learning'],
     method: 'Independent synthesis of the technical evolution and practical implications of AI diagnostics, with attention to deep neural networks, CNNs, foundation models, clinical workflow, and human oversight.',
@@ -30,7 +31,7 @@ const research = [
   {
     id: '03', date: 'No date stated', type: 'Formal Academic Investigation', title: 'Fake News Detection Using Machine Learning Techniques',
     short: 'A methodology for identifying misinformation in text through NLP feature extraction, comparative modelling, and a hybrid CNN + SVM detection approach.',
-    tags: ['Misinformation', 'NLP', 'CNN + SVM', 'Text classification'], accent: 'violet', pdf: '/research/fake-news-detection-ml.pdf',
+    tags: ['Misinformation', 'NLP', 'CNN + SVM', 'Text classification'], accent: 'violet', pdf: `${assetBase}research/fake-news-detection-ml.pdf`,
     question: 'How can machine learning distinguish legitimate news from fabricated content at the speed and scale of online platforms?',
     objectives: ['Develop robust models for text classification', 'Compare content, source, and propagation feature sets', 'Benchmark accuracy, precision, recall, and F1-score', 'Propose a scalable framework for content credibility'],
     method: 'A reproducible pipeline covering data acquisition, preprocessing, TF-IDF or embeddings, deterministic splits, cross-validation, comparative model training, and evaluation on public text datasets.',
@@ -40,7 +41,7 @@ const research = [
   {
     id: '04', date: 'December 2024', type: 'Independent Research Presentation', title: 'AI in Climate Change Prediction and Environmental Sustainability',
     short: 'A visual research presentation on AI for climate prediction, renewable energy optimisation, resource management, ecological conservation, and equitable deployment.',
-    tags: ['Climate AI', 'Neural networks', 'Sustainability', 'Equity'], accent: 'green', pdf: '/research/ai-climate-change-sustainability.pdf',
+    tags: ['Climate AI', 'Neural networks', 'Sustainability', 'Equity'], accent: 'green', pdf: `${assetBase}research/ai-climate-change-sustainability.pdf`,
     question: 'How can computational intelligence support climate action while remaining accessible, fair, and environmentally responsible?',
     objectives: ['Explore neural networks and deep learning for atmospheric and ocean modelling', 'Survey renewable energy, resource, and conservation applications', 'Critically examine compute, access, and algorithmic bias', 'Assess future implications for climate policy'],
     method: 'Structured research presentation synthesising climate science context, predictive modelling approaches, sustainability applications, ethical challenges, and future outlook.',
@@ -50,7 +51,7 @@ const research = [
   {
     id: '05', date: 'September 2025', type: 'Independent Research', title: 'The Evolution of Generative AI Models: From Text to General Intelligence',
     short: 'A deep dive into the progression from transformer-based text generation to multimodal systems, reasoning, contextual awareness, and the still-theoretical horizon of AGI.',
-    tags: ['Generative AI', 'Transformers', 'Multimodal', 'Human-AI collaboration'], accent: 'rose', pdf: '/research/evolution-generative-ai-models.pdf',
+    tags: ['Generative AI', 'Transformers', 'Multimodal', 'Human-AI collaboration'], accent: 'rose', pdf: `${assetBase}research/evolution-generative-ai-models.pdf`,
     question: 'What changes as generative models move from fluent text production toward broader, more general capabilities?',
     objectives: ['Trace the evolution from GPT-2 and GPT-3 to modern foundation models', 'Explain the transformer architecture and emergent capabilities', 'Compare task-specific ML with general-purpose generative systems', 'Explore safety, governance, and the human role in future AI'],
     method: 'Independent research synthesis spanning model history, architecture, multimodal systems, reasoning, regulation, projected milestones, and human-AI collaboration.',
