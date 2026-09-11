@@ -86,13 +86,13 @@ const experience = [
     role: 'Applied GenAI & SLM Systems Developer',
     company: 'XYVERION AI',
     current: true,
-    body: 'Architected, fine-tuned, and engineered XYVERION 3.0 — an autonomous desktop AI engine driven by a locally fine-tuned Small Language Model (SLM) with native Win32 OS integration and zero runtime adapter latency.',
+    body: 'I architected, fine-tuned, and engineered XYVERION 3.0 — an autonomous desktop AI engine driven by a locally fine-tuned Small Language Model (SLM) with native Win32 OS integration and zero runtime adapter latency.',
     bullets: [
-      'Quantized Fine-Tuning (4-bit QLoRA): Fine-tuned a causal LLM on consumer GPU hardware (GTX 1650 4GB) using NF4 quantization, gradient checkpointing, and LoRA (r=16, α=32), driving validation loss from 1.6048 to 1.2473 across 85 optimization steps.',
-      'Proprietary Alignment Dataset Curation: Curated and audited a 1,749-pair multi-turn dataset covering deductive reasoning, tool schemas, and strict creator attribution guardrails.',
-      'Direct Safetensors LoRA Weight Fusion: Developed an automated post-training pipeline fusing 112 LoRA adapter shards directly into base model weights, achieving zero runtime adapter overhead.',
-      'Sub-0.3s Native Windows OS Voice Controller: Engineered an ultra-low latency Win32 controller supporting 55+ natural voice commands (app lifecycle, GDI screenshots, volume/media keys, and safe Recycle Bin deletion via SHFileOperationW).',
-      'Desktop Client & Episodic Memory: Packaged as a frameless desktop app with Microsoft Edge WebView2, persistent SQLite episodic memory, and automatic GPU VRAM flush on exit.',
+      'Quantized Fine-Tuning (4-bit QLoRA): I fine-tuned an open-source causal LLM on consumer GPU hardware (GTX 1650 4GB) using NF4 quantization, gradient checkpointing, and LoRA (r=16, α=32), driving validation loss from 1.6048 to 1.2473 across 85 optimization steps.',
+      'Proprietary Alignment Dataset Curation: I curated and audited a 1,749-pair multi-turn dataset covering deductive reasoning, tool schemas, and strict creator attribution guardrails.',
+      'Direct Safetensors LoRA Weight Fusion: I developed an automated post-training pipeline fusing 112 LoRA adapter shards directly into base model weights, achieving zero runtime adapter overhead.',
+      'Sub-0.3s Native Windows OS Voice Controller: I engineered an ultra-low latency Win32 controller supporting 55+ natural voice commands (app lifecycle, GDI screenshots, volume/media keys, and safe Recycle Bin deletion via SHFileOperationW).',
+      'Desktop Client & Episodic Memory: I packaged the system as a frameless desktop app with Microsoft Edge WebView2, persistent SQLite episodic memory, and automatic GPU VRAM flush on exit.',
     ],
   },
   {
@@ -100,23 +100,23 @@ const experience = [
     role: 'AI Data Annotation & Evaluation Contractor',
     company: 'Innodata India Pvt. Ltd.',
     current: true,
-    body: 'Hands-on enterprise AI training data annotation, content moderation, dense grounding, and systematic model evaluation workflows under strict SLAs.',
+    body: 'I conduct enterprise AI training data annotation, content moderation, dense grounding, and systematic model evaluation workflows under strict SLAs.',
     bullets: [
-      'Execute advanced reference-expression and grounding workflows, including dense-structured grounding, CUA-general grounding, and high-resolution spatial annotations.',
-      'Evaluate LLM-generated outputs for factual grounding, contextual consistency, alignment, safety, and strict guideline adherence.',
-      'Apply project-specific rubrics to ensure benchmark training data output while consistently meeting assigned AHT and SLA targets.',
-      'Conduct linguistic, grammatical, and semantic evaluations across multi-turn human-AI conversational datasets.',
+      'I execute advanced reference-expression and grounding workflows, including dense-structured grounding, CUA-general grounding, and high-resolution spatial annotations.',
+      'I evaluate LLM-generated outputs for factual grounding, contextual consistency, alignment, safety, and strict guideline adherence.',
+      'I apply project-specific rubrics to ensure benchmark training data output while consistently meeting assigned AHT and SLA targets.',
+      'I conduct linguistic, grammatical, and semantic evaluations across multi-turn human-AI conversational datasets.',
     ],
   },
   {
     period: '2026 — July 2026',
     role: 'AI Training & Data Annotation Contributor',
     company: 'Outlier AI',
-    body: 'Contributed structured human feedback and comparative ranking to frontier generative AI alignment and model evaluation workflows.',
+    body: 'I contributed structured human feedback and comparative ranking to frontier generative AI alignment and model evaluation workflows.',
     bullets: [
-      'Contributed to frontier generative AI alignment workflows through structured comparative human feedback and model output ranking.',
-      'Conducted multimodal data labeling, image annotation, and quality assurance under strict guideline rubrics.',
-      'Curated multilingual speech and voice dataset components across English, Hindi, and Marathi prompts.',
+      'I contributed to frontier generative AI alignment workflows through structured comparative human feedback and model output ranking.',
+      'I conducted multimodal data labeling, image annotation, and quality assurance under strict guideline rubrics.',
+      'I curated multilingual speech and voice dataset components across English, Hindi, and Marathi prompts.',
     ],
   },
 ];
@@ -153,7 +153,7 @@ const xyverionPillars = [
     icon: <Cpu size={22} />,
     num: 'PILLAR 01',
     title: '4-Bit Quantized QLoRA Fine-Tuning',
-    desc: 'Adapted causal open-source LLMs on consumer edge hardware (NVIDIA GTX 1650 4GB) using bitsandbytes NormalFloat4 (NF4) quantization, gradient checkpointing, and targeted LoRA projection matrices.',
+    desc: 'I adapted causal open-source LLMs on consumer edge hardware (NVIDIA GTX 1650 4GB) using bitsandbytes NormalFloat4 (NF4) quantization, gradient checkpointing, and targeted LoRA projection matrices.',
     bullets: [
       'Targeted attention projection modules (q_proj, k_proj, v_proj, o_proj)',
       'Paged AdamW 8-bit optimizer preventing CUDA out-of-memory errors',
@@ -165,7 +165,7 @@ const xyverionPillars = [
     icon: <Layers size={22} />,
     num: 'PILLAR 02',
     title: 'Automated Safetensors Weight Fusion',
-    desc: 'Eliminated runtime PEFT adapter overhead by developing a standalone Python fusion script that directly merges 112 LoRA adapter shards into the base model weights with zero precision degradation.',
+    desc: 'I eliminated runtime PEFT adapter overhead by developing a standalone Python fusion script that directly merges 112 LoRA adapter shards into base model weights with zero precision degradation.',
     bullets: [
       'Direct mathematical fusion into base safetensors architecture',
       'Zero adapter load latency at runtime with instant token streaming',
@@ -177,7 +177,7 @@ const xyverionPillars = [
     icon: <Terminal size={22} />,
     num: 'PILLAR 03',
     title: 'Sub-0.3s Native Win32 OS Voice Controller',
-    desc: 'Bridged language generation directly to the operating system via low-level Win32 C API bindings in Python ctypes, enabling autonomous desktop actions with sub-second voice latency.',
+    desc: 'I bridged language generation directly to the operating system via low-level Win32 C API bindings in Python ctypes, enabling autonomous desktop actions with sub-second voice latency.',
     bullets: [
       '55+ natural language voice actions: app lifecycle, volume, and media',
       'Fast GDI screenshot buffer capture and active window management',
@@ -189,7 +189,7 @@ const xyverionPillars = [
     icon: <Database size={22} />,
     num: 'PILLAR 04',
     title: 'Glassmorphic Client & Episodic Memory',
-    desc: 'Engineered a frameless desktop client using Microsoft Edge WebView2, backed by SQLite episodic memory for multi-session conversational recall and automated GPU VRAM lifecycle management.',
+    desc: 'I engineered a frameless desktop client using Microsoft Edge WebView2, backed by SQLite episodic memory for multi-session conversational recall and automated GPU VRAM lifecycle management.',
     bullets: [
       'Persistent SQLite relational memory schema for conversational recall',
       'Frameless, modern UI built with Microsoft Edge WebView2',
@@ -452,7 +452,7 @@ function About() {
         <SectionIntro
           eyebrow="01 / PROFILE"
           title={'Beyond prompting — <em>engineering the model itself.</em>'}
-          copy="Durgesh is an Applied GenAI & LLM Systems Engineer operating across the full lifecycle: from multi-turn alignment dataset curation and 4-bit QLoRA fine-tuning to direct safetensors weight fusion, native Win32 desktop automation, and enterprise-grade model evaluation."
+          copy="I am an Applied GenAI & LLM Systems Engineer operating across the full lifecycle: from multi-turn alignment dataset curation and 4-bit QLoRA fine-tuning to direct safetensors weight fusion, native Win32 desktop automation, and enterprise-grade model evaluation."
         />
       </Reveal>
       <div className="about-layout">
@@ -499,7 +499,7 @@ function Experience() {
         <SectionIntro
           eyebrow="02 / TRACK RECORD"
           title={'Model engineering &amp; <em>enterprise rigor.</em>'}
-          copy="Hands-on experience developing autonomous SLM engines, fine-tuning causal models on edge hardware, and conducting enterprise evaluation & data grounding for tier-1 pipelines."
+          copy="My hands-on track record developing autonomous SLM engines, fine-tuning causal models on edge hardware, and conducting enterprise evaluation & data grounding for tier-1 pipelines."
         />
       </Reveal>
       <div className="experience-layout">
@@ -569,9 +569,9 @@ function XyverionShowcase() {
               <em>Autonomous Desktop AI &amp; Local SLM.</em>
             </h2>
             <p className="section-intro">
-              A flagship applied AI system demonstrating open-source causal language model
-              fine-tuning on consumer hardware, automated zero-latency safetensors weight fusion, and
-              ultra-low latency native Win32 operating system execution.
+              XYVERION 3.0 is my flagship applied AI system where I fine-tuned open-source causal
+              language models on consumer hardware, engineered automated zero-latency safetensors
+              weight fusion, and integrated ultra-low latency native Win32 operating system execution.
             </p>
           </div>
         </Reveal>
@@ -643,32 +643,32 @@ function Pipeline() {
     [
       '01',
       'Data Curation & SFT',
-      'Curated 1,749 multi-turn instruction pairs formatted with deductive reasoning, tool schemas, and strict creator guardrails.',
+      'I curate 1,749 multi-turn instruction pairs formatted with deductive reasoning, tool schemas, and strict creator guardrails.',
     ],
     [
       '02',
       '4-Bit QLoRA Tuning',
-      'Quantized causal base LLM using NF4, paged AdamW, and low-rank adapter injection (r=16, α=32), driving validation loss from 1.6048 to 1.2473.',
+      'I quantize causal base LLMs using NF4, paged AdamW, and low-rank adapter injection (r=16, α=32), driving validation loss from 1.6048 to 1.2473.',
     ],
     [
       '03',
       'Safetensors Fusion',
-      'Automated post-training pipeline fusing 112 LoRA shards directly into base safetensors weights for zero runtime adapter overhead.',
+      'I run an automated post-training pipeline fusing 112 LoRA shards directly into base safetensors weights for zero runtime adapter overhead.',
     ],
     [
       '04',
       'Evaluation & RLHF',
-      'Rigorous model evaluation, comparative human feedback scoring, and rubric-driven safety QA learned from enterprise Innodata workflows.',
+      'I execute rigorous model evaluation, comparative human feedback scoring, and rubric-driven safety QA learned from enterprise Innodata workflows.',
     ],
     [
       '05',
       'Win32 Systems Hooks',
-      'Binding language outputs directly to ultra-low latency Win32 C APIs for 55+ natural voice actions, GDI capture, and window management.',
+      'I bind language outputs directly to ultra-low latency Win32 C APIs for 55+ natural voice actions, GDI capture, and window management.',
     ],
     [
       '06',
       'Edge SLM Deployment',
-      'Deploying private, lean, offline-capable small language models with persistent SQLite episodic memory and edge GPU VRAM flushing.',
+      'I deploy private, lean, offline-capable small language models with persistent SQLite episodic memory and edge GPU VRAM flushing.',
     ],
   ];
 
@@ -688,7 +688,7 @@ function Pipeline() {
               </h2>
             </div>
             <p>
-              An end-to-end applied engineering pipeline: transforming domain intent and human
+              My end-to-end applied engineering pipeline: how I transform domain intent and human
               feedback into quantized, fused, high-performance local language models.
             </p>
           </div>
@@ -733,7 +733,7 @@ function Skills() {
         <SectionIntro
           eyebrow="05 / CAPABILITIES"
           title={'Fine-tuning depth &amp; <em>systems engineering.</em>'}
-          copy="A specialized technical toolkit built around causal model fine-tuning, parameter-efficient adaptation, low-level OS automation, and enterprise evaluation rubrics."
+          copy="My specialized technical toolkit built around causal model fine-tuning, parameter-efficient adaptation, low-level OS automation, and enterprise evaluation rubrics."
         />
       </Reveal>
       <div className="skills-layout">
@@ -864,7 +864,7 @@ function Research({ onOpen }) {
           <SectionIntro
             eyebrow="06 / RESEARCH LAB"
             title={'Independent inquiries,<br /><em>carefully examined.</em>'}
-            copy="Five formal and independent investigations spanning ML threat detection, medical computer vision, misinformation NLP, climate modeling, and generative model scaling laws."
+            copy="My five formal and independent investigations spanning ML threat detection, medical computer vision, misinformation NLP, climate modeling, and generative model scaling laws."
           />
           <div className="research-count">
             <strong>05</strong>
@@ -895,7 +895,7 @@ function SupportingProjects() {
         <SectionIntro
           eyebrow="07 / FOUNDATIONAL WORK"
           title={'Full-stack systems &amp; <em>web interfaces.</em>'}
-          copy="Foundational software development experience prior to specialized GenAI engineering, demonstrating strong competencies across modern web architecture, JavaScript, and API integrations."
+          copy="My foundational software development experience prior to specialized GenAI engineering, demonstrating strong competencies across modern web architecture, JavaScript, and API integrations."
         />
       </Reveal>
       <div className="project-slate">
@@ -912,8 +912,8 @@ function SupportingProjects() {
           <div>
             <h3>Interactive Full-Stack Web Applications</h3>
             <p>
-              Engineered responsive applications utilizing modern JavaScript, HTML5/CSS3, and
-              dynamic API endpoints. Serves as the web and client foundation for desktop AI
+              I engineered responsive applications utilizing modern JavaScript, HTML5/CSS3, and
+              dynamic API endpoints. This serves as the web and client foundation for desktop AI
               runtimes such as Microsoft Edge WebView2.
             </p>
           </div>
@@ -946,7 +946,7 @@ function Education() {
         <SectionIntro
           eyebrow="08 / CREDENTIALS"
           title={'Academic foundation &amp; <em>C1 language fluency.</em>'}
-          copy="A concise academic and certified English fluency record, reflecting strong quantitative and verbal communication credentials."
+          copy="My academic foundation and certified English fluency record, reflecting strong quantitative and verbal communication credentials."
         />
       </Reveal>
       <div className="education-grid">
@@ -1003,8 +1003,8 @@ function Contact() {
             <em>exceptional AI.</em>
           </h2>
           <p>
-            Whether you need custom model fine-tuning (QLoRA/PEFT), local SLM edge architecture,
-            complex alignment dataset curation, or enterprise model evaluation, let's connect.
+            Whether you are looking for custom model fine-tuning (QLoRA/PEFT), local SLM edge architecture,
+            complex alignment dataset curation, or enterprise model evaluation, I would love to connect.
           </p>
           <div className="contact-actions">
             <a className="button button-primary" href="mailto:durgeshunde@gmail.com">
