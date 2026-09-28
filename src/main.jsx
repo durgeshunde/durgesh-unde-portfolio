@@ -5,118 +5,174 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   BrainCircuit,
+  Bot,
   Check,
   ChevronRight,
-  CircleDot,
   Cpu,
   Database,
   Download,
+  ExternalLink,
+  GraduationCap,
   Layers,
   Mail,
   Menu,
+  MessageSquare,
   Network,
   ShieldCheck,
-  Sliders,
   Sparkles,
   Terminal,
+  Workflow,
   X,
-  Zap
+  Zap,
+  ZoomIn
 } from 'lucide-react';
 import './styles.css';
 
 const assetBase = import.meta.env.BASE_URL;
 const resumeHref = `${assetBase}assets/durgesh-unde-resume.pdf`;
+const dashboardImg = `${assetBase}assets/xyverion-dashboard.png`;
+const chatImg = `${assetBase}assets/xyverion-chat.png`;
 
 const research = [
   {
-    id: '01', date: 'August 2023', type: 'Research Study', title: 'Enhancing Cybersecurity with Machine Learning-Based Threat Detection',
-    short: 'A study of intelligent threat detection systems that use supervised and unsupervised learning to identify malicious patterns, anomalies, and evolving attack vectors.',
-    tags: ['Cybersecurity', 'Threat detection', 'Random Forest', 'Anomaly detection'], accent: 'cyan', pdf: `${assetBase}research/enhancing-cybersecurity-threat-detection.pdf`,
+    id: '01',
+    date: 'August 2023',
+    type: 'Research Study',
+    title: 'Enhancing Cybersecurity with Machine Learning-Based Threat Detection',
+    short: 'A study of intelligent threat detection systems using supervised and unsupervised learning to identify malicious patterns, anomalies, and evolving attack vectors.',
+    tags: ['Cybersecurity', 'Threat Detection', 'Random Forest', 'Anomaly Detection'],
+    accent: 'cyan',
+    pdf: `${assetBase}research/enhancing-cybersecurity-threat-detection.pdf`,
     question: 'How can machine learning strengthen threat detection beyond static, signature-based security?',
-    objectives: ['Improve detection accuracy for known and unknown threats', 'Reduce false alarms and alert fatigue', 'Explore automated response and escalation', 'Evaluate supervised and unsupervised ML approaches'],
-    method: 'Literature-led analysis of software-level threat detection, using network traffic, system logs, user behaviour, publicly available datasets, and discussion of practical enterprise implementation.',
-    findings: 'The study concludes that machine-learning-based approaches can improve detection accuracy, reduce false positives, and support automated threat response when integrated with operational security infrastructure.',
-    takeaway: 'Adaptive pattern recognition gives security teams a path beyond predefined signatures — while data, compute, and deployment context still matter.',
+    objectives: [
+      'Improve detection accuracy for known and unknown threats',
+      'Reduce false alarms and alert fatigue',
+      'Explore automated response and escalation',
+      'Evaluate supervised and unsupervised ML approaches',
+    ],
+    method: 'Literature-led analysis of software-level threat detection, using network traffic, system logs, user behaviour, publicly available datasets, and practical enterprise implementation.',
+    findings: 'Machine-learning-based approaches improve detection accuracy, reduce false positives, and support automated threat response when integrated with operational infrastructure.',
+    takeaway: 'Adaptive pattern recognition gives security teams a path beyond predefined signatures — while data, compute, and deployment context remain critical.',
   },
   {
-    id: '02', date: 'February 2024', type: 'Individual Research Report', title: 'AI in Healthcare Diagnostics: Beyond Human Accuracy',
+    id: '02',
+    date: 'February 2024',
+    type: 'Individual Research Report',
+    title: 'AI in Healthcare Diagnostics: Beyond Human Accuracy',
     short: 'An exploration of deep learning, medical imaging, clinical decision support, and the conditions required for responsible, explainable diagnostic AI.',
-    tags: ['Healthcare AI', 'Deep learning', 'Medical imaging', 'Explainability'], accent: 'amber', pdf: `${assetBase}research/ai-healthcare-diagnostics.pdf`,
+    tags: ['Healthcare AI', 'Deep Learning', 'Medical Imaging', 'Explainability'],
+    accent: 'amber',
+    pdf: `${assetBase}research/ai-healthcare-diagnostics.pdf`,
     question: 'Where can AI-assisted diagnostics exceed average human performance, and what must accompany that capability?',
-    objectives: ['Trace the evolution from rule-based systems to deep learning', 'Examine imaging, oncology, pathology, and clinical decision support', 'Consider bias, data quality, explainability, and regulation', 'Map future directions such as multimodal and federated learning'],
-    method: 'Independent synthesis of the technical evolution and practical implications of AI diagnostics, with attention to deep neural networks, CNNs, foundation models, clinical workflow, and human oversight.',
-    findings: 'The report presents targeted diagnostic tasks where AI can match or exceed average human performance, while emphasising that generalisation, trust, validation, fairness, and clinical integration determine real-world value.',
+    objectives: [
+      'Trace evolution from rule-based systems to deep learning',
+      'Examine imaging, oncology, pathology, and clinical decision support',
+      'Consider bias, data quality, explainability, and regulation',
+      'Map future directions such as multimodal and federated learning',
+    ],
+    method: 'Independent synthesis of the technical evolution and practical implications of AI diagnostics, with attention to CNNs, foundation models, clinical workflows, and human oversight.',
+    findings: 'Targeted diagnostic tasks can match or exceed average human performance, but generalization, validation, and clinical integration dictate real-world value.',
     takeaway: 'The strongest model is not the whole solution: reliable diagnostic AI depends on high-quality data, transparent reasoning, and collaborative clinical use.',
   },
   {
-    id: '03', date: 'December 2022', type: 'Formal Academic Investigation', title: 'Fake News Detection Using Machine Learning Techniques',
+    id: '03',
+    date: 'December 2022',
+    type: 'Formal Academic Investigation',
+    title: 'Fake News Detection Using Machine Learning Techniques',
     short: 'A methodology for identifying misinformation in text through NLP feature extraction, comparative modelling, and a hybrid CNN + SVM detection approach.',
-    tags: ['Misinformation', 'NLP', 'CNN + SVM', 'Text classification'], accent: 'violet', pdf: `${assetBase}research/fake-news-detection-ml.pdf`,
+    tags: ['Misinformation', 'NLP', 'CNN + SVM', 'Text Classification'],
+    accent: 'violet',
+    pdf: `${assetBase}research/fake-news-detection-ml.pdf`,
     question: 'How can machine learning distinguish legitimate news from fabricated content at the speed and scale of online platforms?',
-    objectives: ['Develop robust models for text classification', 'Compare content, source, and propagation feature sets', 'Benchmark accuracy, precision, recall, and F1-score', 'Propose a scalable framework for content credibility'],
-    method: 'A reproducible pipeline covering data acquisition, preprocessing, TF-IDF or embeddings, deterministic splits, cross-validation, comparative model training, and evaluation on public text datasets.',
-    findings: 'The paper reports that a hybrid approach combining CNN deep feature extraction with traditional SVM classification outperforms single-method systems in the presented framework.',
-    takeaway: 'Detection quality is inseparable from semantic context, evolving deception, representative labels, and careful handling of false positives.',
+    objectives: [
+      'Develop robust models for text classification',
+      'Compare content, source, and propagation feature sets',
+      'Benchmark accuracy, precision, recall, and F1-score',
+      'Propose a scalable framework for content credibility',
+    ],
+    method: 'A reproducible pipeline covering data acquisition, preprocessing, embeddings, deterministic splits, cross-validation, comparative model training, and evaluation on public text datasets.',
+    findings: 'A hybrid approach combining CNN deep feature extraction with traditional SVM classification outperforms single-method baselines in the presented framework.',
+    takeaway: 'Detection quality is inseparable from semantic context, evolving deception patterns, representative labels, and careful handling of false positives.',
   },
   {
-    id: '04', date: 'December 2024', type: 'Independent Research Presentation', title: 'AI in Climate Change Prediction and Environmental Sustainability',
-    short: 'A visual research presentation on AI for climate prediction, renewable energy optimisation, resource management, ecological conservation, and equitable deployment.',
-    tags: ['Climate AI', 'Neural networks', 'Sustainability', 'Equity'], accent: 'green', pdf: `${assetBase}research/ai-climate-change-sustainability.pdf`,
+    id: '04',
+    date: 'December 2024',
+    type: 'Independent Research Presentation',
+    title: 'AI in Climate Change Prediction and Environmental Sustainability',
+    short: 'A visual research presentation on AI for climate prediction, renewable energy optimisation, resource management, and equitable deployment.',
+    tags: ['Climate AI', 'Neural Networks', 'Sustainability', 'Resource Optimization'],
+    accent: 'green',
+    pdf: `${assetBase}research/ai-climate-change-sustainability.pdf`,
     question: 'How can computational intelligence support climate action while remaining accessible, fair, and environmentally responsible?',
-    objectives: ['Explore neural networks and deep learning for atmospheric and ocean modelling', 'Survey renewable energy, resource, and conservation applications', 'Critically examine compute, access, and algorithmic bias', 'Assess future implications for climate policy'],
-    method: 'Structured research presentation synthesising climate science context, predictive modelling approaches, sustainability applications, ethical challenges, and future outlook.',
-    findings: 'The presentation positions AI as a powerful tool for prediction and resource optimisation, while identifying computational cost, data accessibility, bias, and equitable deployment as central constraints.',
-    takeaway: 'Climate intelligence is valuable only when its benefits can reach the communities most exposed to climate risk.',
+    objectives: [
+      'Explore neural networks for atmospheric and ocean modelling',
+      'Survey renewable energy, resource, and conservation applications',
+      'Critically examine compute, access, and algorithmic bias',
+      'Assess future implications for climate policy',
+    ],
+    method: 'Structured research presentation synthesising climate science context, predictive modelling approaches, sustainability applications, and ethical challenges.',
+    findings: 'AI serves as a powerful predictive and optimization instrument, while computational cost, data access, and equitable deployment remain core constraints.',
+    takeaway: 'Climate intelligence is valuable only when its benefits can reach the communities most exposed to environmental risk.',
   },
   {
-    id: '05', date: 'September 2025', type: 'Independent Research', title: 'The Evolution of Generative AI Models: From Text to General Intelligence',
-    short: 'A deep dive into the progression from transformer-based text generation to multimodal systems, reasoning, contextual awareness, and the still-theoretical horizon of AGI.',
-    tags: ['Generative AI', 'Transformers', 'Multimodal', 'Human-AI collaboration'], accent: 'rose', pdf: `${assetBase}research/evolution-generative-ai-models.pdf`,
+    id: '05',
+    date: 'September 2025',
+    type: 'Independent Research',
+    title: 'The Evolution of Generative AI Models: From Text to General Intelligence',
+    short: 'A deep dive into the progression from transformer-based text generation to multimodal systems, reasoning, contextual awareness, and autonomous agents.',
+    tags: ['Generative AI', 'Transformers', 'Multimodal', 'Autonomous Agents'],
+    accent: 'rose',
+    pdf: `${assetBase}research/evolution-generative-ai-models.pdf`,
     question: 'What changes as generative models move from fluent text production toward broader, more general capabilities?',
-    objectives: ['Trace the evolution from GPT-2 and GPT-3 to modern foundation models', 'Explain the transformer architecture and emergent capabilities', 'Compare task-specific ML with general-purpose generative systems', 'Explore safety, governance, and the human role in future AI'],
-    method: 'Independent research synthesis spanning model history, architecture, multimodal systems, reasoning, regulation, projected milestones, and human-AI collaboration.',
-    findings: 'The paper describes a staged evolution toward broader generalisation and multimodal reasoning, while clearly treating full AGI as aspirational and not yet achieved.',
-    takeaway: 'Capability growth is inseparable from context, governance, and the uniquely human judgement that guides how systems are used.',
+    objectives: [
+      'Trace evolution from GPT-2 and GPT-3 to modern foundation models',
+      'Analyze transformer architecture and emergent reasoning',
+      'Compare task-specific ML with general-purpose generative systems',
+      'Explore safety, governance, and the human role in future AI',
+    ],
+    method: 'Independent research synthesis spanning model history, attention architectures, multimodal systems, reasoning, regulation, and human-AI collaboration.',
+    findings: 'The study traces a staged progression toward multimodal reasoning and agentic execution, while treating full AGI as aspirational and not yet achieved.',
+    takeaway: 'Capability growth is inseparable from system integration, governance, and the human engineering that guides how models are applied.',
   },
 ];
 
 const experience = [
   {
-    period: 'Aug 2026 — Present',
-    role: 'Applied GenAI & SLM Systems Developer',
+    period: 'September 2026 — Present',
+    role: 'Founder & AI Engineer',
     company: 'XYVERION AI',
     current: true,
-    body: 'I architected, fine-tuned, and engineered XYVERION 3.0 — an autonomous desktop AI engine driven by a locally fine-tuned Small Language Model (SLM) with native Win32 OS integration and zero runtime adapter latency.',
+    body: 'Building AI software across conversational AI, agentic workflows, desktop automation, LLM-based systems, and practical product applications.',
     bullets: [
-      'Quantized Fine-Tuning (4-bit QLoRA): I fine-tuned an open-source causal LLM on consumer GPU hardware (GTX 1650 4GB) using NF4 quantization, gradient checkpointing, and LoRA (r=16, α=32), driving validation loss from 1.6048 to 1.2473 across 85 optimization steps.',
-      'Proprietary Alignment Dataset Curation: I curated and audited a 1,749-pair multi-turn dataset covering deductive reasoning, tool schemas, and strict creator attribution guardrails.',
-      'Direct Safetensors LoRA Weight Fusion: I developed an automated post-training pipeline fusing 112 LoRA adapter shards directly into base model weights, achieving zero runtime adapter overhead.',
-      'Sub-0.3s Native Windows OS Voice Controller: I engineered an ultra-low latency Win32 controller supporting 55+ natural voice commands (app lifecycle, GDI screenshots, volume/media keys, and safe Recycle Bin deletion via SHFileOperationW).',
-      'Desktop Client & Episodic Memory: I packaged the system as a frameless desktop app with Microsoft Edge WebView2, persistent SQLite episodic memory, and automatic GPU VRAM flush on exit.',
+      'Developed and engineered XYVERION 3.0, a local autonomous AI desktop system powered by a fine-tuned causal language model.',
+      'Worked with model integration, tool calling, local model execution, application interfaces and automation.',
+      'Built native Windows automation and local AI system components.',
+      'Developed supporting software architecture around model execution, memory and system control.',
     ],
   },
   {
-    period: 'Aug 2026 — Present',
+    period: 'August 2026 — Present',
     role: 'AI Data Annotation & Evaluation Contractor',
     company: 'Innodata India Pvt. Ltd.',
     current: true,
-    body: 'I conduct enterprise AI training data annotation, content moderation, dense grounding, and systematic model evaluation workflows under strict SLAs.',
+    body: 'Executing structured AI training data annotation, content moderation, dense grounding, and systematic model evaluation workflows under strict SLAs.',
     bullets: [
-      'I execute advanced reference-expression and grounding workflows, including dense-structured grounding, CUA-general grounding, and high-resolution spatial annotations.',
-      'I evaluate LLM-generated outputs for factual grounding, contextual consistency, alignment, safety, and strict guideline adherence.',
-      'I apply project-specific rubrics to ensure benchmark training data output while consistently meeting assigned AHT and SLA targets.',
-      'I conduct linguistic, grammatical, and semantic evaluations across multi-turn human-AI conversational datasets.',
+      'AI training data annotation, grounding workflows, and reference-expression workflows.',
+      'Evaluated model outputs for factual grounding, contextual consistency, alignment, and safety.',
+      'Linguistic, grammatical, and semantic quality review across multi-turn human-AI datasets.',
+      'Applied guideline-based rubrics and QA to deliver benchmark training data while meeting assigned AHT and SLA targets.',
     ],
   },
   {
-    period: '2026 — July 2026',
+    period: 'January 2026 — July 2026',
     role: 'AI Training & Data Annotation Contributor',
     company: 'Outlier AI',
-    body: 'I contributed structured human feedback and comparative ranking to frontier generative AI alignment and model evaluation workflows.',
+    body: 'Contributed structured human feedback, comparative ranking, and multimodal data labeling to generative AI evaluation workflows.',
     bullets: [
-      'I contributed to frontier generative AI alignment workflows through structured comparative human feedback and model output ranking.',
-      'I conducted multimodal data labeling, image annotation, and quality assurance under strict guideline rubrics.',
-      'I curated multilingual speech and voice dataset components across English, Hindi, and Marathi prompts.',
+      'Structured human feedback and comparative model output ranking for reasoning and code generation models.',
+      'Multimodal data labeling, image annotation, and quality assurance under strict guideline rubrics.',
+      'Curated multilingual speech and voice dataset components across English, Hindi, and Marathi prompts.',
+      'Performed quality assessments and systematic error categorization to improve model alignment.',
     ],
   },
 ];
@@ -129,129 +185,181 @@ const xyverionMetrics = [
     highlight: true,
   },
   {
-    val: '1,749 Pairs',
-    lbl: 'Custom SFT Dataset',
-    sub: 'Multi-turn deductive reasoning, tool-calling schemas & attribution guardrails',
+    val: '1,749',
+    lbl: 'Instruction Dataset Examples',
+    sub: '1,749-example multi-turn instruction dataset covering reasoning & schemas',
     highlight: false,
   },
   {
-    val: '112 Shards',
-    lbl: 'Fused Safetensors',
-    sub: 'Automated pipeline merging LoRA adapter weights directly into base FP16 tensors',
+    val: '112',
+    lbl: 'LoRA Adapter Shards Fused',
+    sub: 'Automated post-training pipeline merging adapter weights into base safetensors',
     highlight: false,
   },
   {
-    val: '< 0.3s Latency',
-    lbl: 'Win32 OS Automation',
-    sub: 'Ultra-low latency Ctypes controller executing 55+ natural voice and system commands',
+    val: '55+',
+    lbl: 'Windows / Voice Commands',
+    sub: 'Native Ctypes controller executing system actions and app lifecycle',
+    highlight: false,
+  },
+  {
+    val: '< 0.3s',
+    lbl: 'Native Controller Latency',
+    sub: 'Low-latency Win32 OS execution and media/window hooks',
     highlight: true,
   },
+];
+
+const xyverionStack = [
+  'Python',
+  'PyTorch',
+  'Hugging Face Transformers',
+  'PEFT',
+  '4-bit QLoRA',
+  'bitsandbytes',
+  'NF4',
+  'LoRA',
+  'Safetensors',
+  'Win32 API',
+  'Python ctypes',
+  'SQLite',
+  'Microsoft Edge WebView2',
+  'JavaScript',
+  'HTML/CSS',
+  'Git',
 ];
 
 const xyverionPillars = [
   {
     icon: <Cpu size={22} />,
-    num: 'PILLAR 01',
-    title: '4-Bit Quantized QLoRA Fine-Tuning',
+    num: '01',
+    title: '4-Bit QLoRA Fine-Tuning',
     desc: 'I adapted causal open-source LLMs on consumer edge hardware (NVIDIA GTX 1650 4GB) using bitsandbytes NormalFloat4 (NF4) quantization, gradient checkpointing, and targeted LoRA projection matrices.',
     bullets: [
       'Targeted attention projection modules (q_proj, k_proj, v_proj, o_proj)',
-      'Paged AdamW 8-bit optimizer preventing CUDA out-of-memory errors',
-      'Validation loss reduced from 1.6048 to 1.2473 over 85 steps',
+      'Low-rank parameters (r=16, α=32) with paged AdamW 8-bit optimizer',
+      'Validation loss reduced from 1.6048 to 1.2473 across 85 optimization steps',
     ],
     tags: ['PEFT', '4-Bit QLoRA', 'bitsandbytes', 'PyTorch', 'Transformers'],
   },
   {
     icon: <Layers size={22} />,
-    num: 'PILLAR 02',
-    title: 'Automated Safetensors Weight Fusion',
-    desc: 'I eliminated runtime PEFT adapter overhead by developing a standalone Python fusion script that directly merges 112 LoRA adapter shards into base model weights with zero precision degradation.',
+    num: '02',
+    title: 'Safetensors Weight Fusion',
+    desc: 'I eliminated runtime PEFT adapter overhead by developing an automated Python post-training fusion script that directly merges 112 LoRA adapter shards into base model weights.',
     bullets: [
       'Direct mathematical fusion into base safetensors architecture',
-      'Zero adapter load latency at runtime with instant token streaming',
-      'Deployable as a standalone native checkpoint without PEFT dependency',
+      'Zero runtime adapter overhead at token generation time',
+      'Standalone native checkpoint deployment without PEFT dependencies',
     ],
     tags: ['Safetensors', 'Weight Fusion', 'Tensor Arithmetic', 'Zero Overhead'],
   },
   {
     icon: <Terminal size={22} />,
-    num: 'PILLAR 03',
-    title: 'Sub-0.3s Native Win32 OS Voice Controller',
-    desc: 'I bridged language generation directly to the operating system via low-level Win32 C API bindings in Python ctypes, enabling autonomous desktop actions with sub-second voice latency.',
+    num: '03',
+    title: 'Native Win32 Automation',
+    desc: 'I bridged language generation directly to the operating system via low-level Win32 C API bindings in Python ctypes, enabling autonomous desktop actions with sub-second latency.',
     bullets: [
-      '55+ natural language voice actions: app lifecycle, volume, and media',
-      'Fast GDI screenshot buffer capture and active window management',
+      '55+ natural voice and system commands: app lifecycle, media, and volume',
+      'GDI screenshot buffer capture and active window state management',
       'Safe Recycle Bin deletion implemented through SHFileOperationW',
     ],
-    tags: ['Win32 API', 'Python Ctypes', 'Voice Engine', 'Low-Latency OS Hooks'],
+    tags: ['Win32 API', 'Python Ctypes', 'Voice Engine', 'Low-Latency Hooks'],
   },
   {
     icon: <Database size={22} />,
-    num: 'PILLAR 04',
-    title: 'Glassmorphic Client & Episodic Memory',
+    num: '04',
+    title: 'Desktop Client & Persistent Memory',
     desc: 'I engineered a frameless desktop client using Microsoft Edge WebView2, backed by SQLite episodic memory for multi-session conversational recall and automated GPU VRAM lifecycle management.',
     bullets: [
       'Persistent SQLite relational memory schema for conversational recall',
-      'Frameless, modern UI built with Microsoft Edge WebView2',
-      'Automatic GPU cache and VRAM flush on application exit',
+      'Frameless, modern client built with Microsoft Edge WebView2',
+      'Automatic GPU cache and VRAM lifecycle management on application exit',
     ],
-    tags: ['Edge WebView2', 'SQLite', 'Episodic Memory', 'VRAM Lifecycle'],
+    tags: ['Edge WebView2', 'SQLite', 'Episodic Memory', 'VRAM Management'],
   },
 ];
 
-const skills = {
-  'GenAI & Model Fine-Tuning': [
-    '4-Bit QLoRA Fine-Tuning (PEFT)',
-    'LoRA Adapter Weight Fusion',
-    'Direct Safetensors Merging',
-    'Alignment Dataset Curation (SFT)',
-    'Small Language Models (SLMs)',
-    'Hugging Face Transformers',
-    'PyTorch Deep Learning',
-    'NF4 / FP16 Quantization',
-    'LLM Output Evaluation & RLHF',
-    'Human-in-the-Loop (HITL) QA',
-    'Dense Grounding & Ref-Expression',
-    'Multimodal Annotation',
+const whatIBuildCards = [
+  {
+    icon: <Bot size={24} />,
+    title: 'AI AGENTS',
+    copy: 'Tool-using AI systems designed to interact with software, APIs and real workflows.',
+    tag: 'Autonomous Systems',
+  },
+  {
+    icon: <MessageSquare size={24} />,
+    title: 'CONVERSATIONAL AI',
+    copy: 'AI assistants designed around business questions, customer interactions and practical workflows.',
+    tag: 'Dialogue & Intent',
+  },
+  {
+    icon: <BrainCircuit size={24} />,
+    title: 'MODEL ENGINEERING',
+    copy: 'LLM fine-tuning, model evaluation, dataset curation and parameter-efficient adaptation.',
+    tag: 'Weights & Curation',
+  },
+  {
+    icon: <Workflow size={24} />,
+    title: 'AUTOMATION',
+    copy: 'AI-powered desktop, software and workflow automation connecting models to real actions.',
+    tag: 'OS & Integration',
+  },
+];
+
+const capabilities = {
+  'AI / Model Engineering': [
+    'Python',
+    'PyTorch',
+    'Transformers',
+    'QLoRA',
+    'PEFT',
+    'LoRA',
+    'NF4 Quantization',
+    'LLM Evaluation',
+    'AI Agents',
+    'Model Alignment',
+    'Data Annotation',
+    'Conversational AI',
   ],
-  'Systems & OS Automation': [
-    'Python (PyTorch, Transformers, PEFT)',
-    'Win32 API & OS Automation (ctypes)',
+  'Systems / Automation': [
+    'Win32 API',
+    'Python ctypes',
+    'Safetensors',
+    'SQLite',
     'Microsoft Edge WebView2',
-    'SQLite Database Engineering',
-    'Consumer GPU VRAM Optimization',
-    'HTML5 / CSS3 / Modern JavaScript',
-    'RESTful API Engineering',
-    'Git & GitHub Version Control',
+    'GPU / VRAM Lifecycle Management',
+    'OS Automation',
   ],
-  'Quality & Evaluation Standards': [
-    'Systems & Pipeline Architecture',
-    'Analytical & Deductive Reasoning',
-    'Meticulous Quality & Guideline QA',
-    'Fast Debugging & Root Cause Analysis',
-    'AHT Optimization & SLA Delivery',
+  'Software': [
+    'JavaScript',
+    'HTML5',
+    'CSS3',
+    'REST APIs',
+    'Git',
+    'GitHub',
+  ],
+  'Quality / Evaluation': [
+    'Model Output Evaluation',
+    'Grounding',
+    'Human-in-the-Loop QA',
+    'Multimodal Annotation',
     'Benchmark Data Auditing',
-    'Content Moderation Rubrics',
-  ],
-  'Languages & Certifications': [
-    'IELTS Academic Band 7.5 (CEFR C1 Level)',
-    'English (Advanced / Fluent)',
-    'Hindi (Advanced / Professional)',
-    'Marathi (Native / Fluent)',
+    'Linguistic & Semantic Evaluation',
   ],
 };
 
-function Reveal({ children, className = '', delay = 0, y = 24 }) {
+function Reveal({ children, className = '', delay = 0, y = 20 }) {
   const reduce = useReducedMotion();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '-60px' });
   return (
     <motion.div
       ref={ref}
       className={className}
       initial={reduce ? false : { opacity: 0, y }}
       animate={inView || reduce ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>
@@ -271,6 +379,7 @@ function Mark() {
 function Header({ onNavigate }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', fn);
@@ -280,10 +389,11 @@ function Header({ onNavigate }) {
   const nav = [
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
+    { id: 'work', label: 'Selected Work' },
     { id: 'xyverion', label: 'XYVERION 3.0' },
-    { id: 'pipeline', label: 'Fine-Tuning' },
-    { id: 'skills', label: 'Capabilities' },
+    { id: 'capabilities', label: 'Capabilities' },
     { id: 'research', label: 'Research' },
+    { id: 'education', label: 'Education' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -348,55 +458,50 @@ function Hero({ onNavigate }) {
     <section className="hero" id="top">
       <div className="hero-grid" />
       <div className="hero-glow glow-one" />
-      <div className="hero-glow glow-two" />
-      <div className="hero-orbit orbit-one" />
-      <div className="hero-orbit orbit-two" />
       <div className="hero-content page-width">
         <Reveal>
           <div className="eyebrow">
-            <span className="status-dot" /> Open to Applied GenAI &amp; LLM Systems Roles{' '}
+            <span className="status-dot" /> OPEN TO AI ENGINEERING &amp; COLLABORATION OPPORTUNITIES{' '}
             <span className="eyebrow-line" />
           </div>
         </Reveal>
-        <Reveal delay={0.05}>
+        <Reveal delay={0.04}>
           <div className="hero-name">DURGESH UNDE</div>
           <div className="hero-role">
-            Applied GenAI &amp; LLM Systems Engineer <span>/</span> 4-Bit QLoRA Fine-Tuning{' '}
-            <span>/</span> AI Evaluation &amp; Alignment
+            AI ENGINEER &amp; FOUNDER <span>/</span> LLMs <span>/</span> AI AGENTS <span>/</span> AUTOMATION <span>/</span> MODEL ENGINEERING
           </div>
         </Reveal>
-        <Reveal delay={0.08}>
+        <Reveal delay={0.07}>
           <h1>
-            Fine-tuning models.
+            Building AI systems
             <br />
-            <span>Engineering</span> autonomous AI.
+            <em>that work beyond the demo.</em>
           </h1>
         </Reveal>
-        <Reveal delay={0.16}>
+        <Reveal delay={0.12}>
           <p className="hero-copy">
-            I fine-tune open-source causal LLMs, curate specialized multi-turn alignment datasets,
-            fuse safetensors weights for edge hardware, and engineer native Win32 system
-            controllers — backed by enterprise model evaluation and RLHF rigor.
+            I build AI-powered software across LLM fine-tuning, AI agents, conversational AI,
+            automation, model evaluation, and full-stack applications.
           </p>
         </Reveal>
-        <Reveal delay={0.24}>
+        <Reveal delay={0.18}>
           <div className="hero-actions">
-            <button className="button button-primary" onClick={() => onNavigate('xyverion')}>
-              Explore XYVERION 3.0 <ArrowDownRight size={17} />
+            <button className="button button-primary" onClick={() => onNavigate('work')}>
+              EXPLORE MY WORK <ArrowDownRight size={16} />
             </button>
-            <button className="button button-quiet" onClick={() => onNavigate('pipeline')}>
-              Fine-Tuning Pipeline <ArrowUpRight size={17} />
+            <button className="button button-quiet" onClick={() => onNavigate('xyverion')}>
+              XYVERION 3.0 <ArrowUpRight size={16} />
             </button>
             <a className="button button-ghost" href={resumeHref} download="Durgesh-Unde-Resume.pdf">
-              Download resume <Download size={16} />
+              DOWNLOAD RESUME <Download size={15} />
             </a>
           </div>
         </Reveal>
-        <Reveal delay={0.3}>
+        <Reveal delay={0.24}>
           <div className="hero-foot">
             <div>
               <span className="mini-label">CORE FOCUS</span>
-              <strong>4-Bit QLoRA Fine-Tuning · Safetensors Weight Fusion · Local SLMs · RLHF</strong>
+              <strong>LLMs · AI Agents · Automation · Model Engineering</strong>
             </div>
             <div className="scroll-note">
               <span className="scroll-line" /> Scroll to explore
@@ -404,28 +509,24 @@ function Hero({ onNavigate }) {
           </div>
         </Reveal>
       </div>
+
       <div className="signal-panel" aria-hidden="true">
-        <div className="signal-label">APPLIED GENAI / 4-BIT QLORA &amp; LOCAL SLMS</div>
+        <div className="signal-label">SYSTEM ARCHITECTURE / LOCAL SLM &amp; AGENTS</div>
         <div className="signal-canvas">
           <div className="signal-ring ring-a" />
-          <div className="signal-ring ring-b" />
           <div className="signal-core">
             <BrainCircuit size={28} />
-            <span>01</span>
+            <span>AI</span>
           </div>
-          {Array.from({ length: 14 }).map((_, i) => (
-            <i className={`node node-${i}`} key={i} />
-          ))}
           <svg viewBox="0 0 500 500">
             <path d="M90 148 C180 80 230 220 304 150 S430 130 416 286 290 420 192 350 98 310 90 148" />
             <path d="M56 270 C170 220 208 330 274 274 S365 170 444 252" />
-            <path d="M156 62 C120 184 220 224 182 440" />
           </svg>
         </div>
         <div className="signal-meta">
-          <span>1.2473 VAL LOSS</span>
-          <span>112 FUSED SHARDS</span>
-          <span>SUB-0.3S WIN32</span>
+          <span>LOCAL SLM ENGINE</span>
+          <span>AUTONOMOUS AGENTS</span>
+          <span>WIN32 AUTOMATION</span>
         </div>
       </div>
     </section>
@@ -446,41 +547,47 @@ function SectionIntro({ eyebrow, title, copy, id }) {
 }
 
 function About() {
+  const keywords = [
+    'LLMs',
+    'AI Agents',
+    'Conversational AI',
+    'Model Engineering',
+    'Automation',
+    'AI Evaluation',
+  ];
+
   return (
     <section className="about section page-width" id="about">
       <Reveal>
         <SectionIntro
           eyebrow="01 / PROFILE"
-          title={'Beyond prompting — <em>engineering the model itself.</em>'}
-          copy="I am an Applied GenAI & LLM Systems Engineer operating across the full lifecycle: from multi-turn alignment dataset curation and 4-bit QLoRA fine-tuning to direct safetensors weight fusion, native Win32 desktop automation, and enterprise-grade model evaluation."
+          title={'Building AI systems<br /><em>from the model layer up.</em>'}
+          copy="I build AI systems across LLM fine-tuning, AI agents, conversational AI, automation, model evaluation and full-stack application development."
         />
       </Reveal>
       <div className="about-layout">
-        <Reveal delay={0.08} className="about-note">
+        <Reveal delay={0.06} className="about-note">
           <div className="editorial-number">01</div>
           <p>
-            I build at the intersection where fine-tuned model weights connect directly with local
-            hardware, native system execution, and structured human feedback.
+            As the founder of XYVERION AI, I focus on turning AI capabilities into practical software
+            — from locally running language models and desktop automation to conversational systems for
+            real-world business workflows.
+          </p>
+          <p style={{ marginTop: '16px', color: '#9fa9a7' }}>
+            I enjoy working where models, software and systems engineering meet.
           </p>
           <span className="line-accent" />
         </Reveal>
-        <Reveal delay={0.16} className="keyword-field">
+        <Reveal delay={0.12} className="keyword-field">
           <div className="keyword-card keyword-main">
             <Sparkles size={18} />
             <span>
-              Applied GenAI &amp;
+              Core Technical
               <br />
-              <strong>Model Fine-Tuning</strong>
+              <strong>Focus Areas</strong>
             </span>
           </div>
-          {[
-            '4-bit QLoRA Fine-Tuning',
-            'LoRA Safetensors Fusion',
-            'SLM System Architecture',
-            '1,749 SFT Dataset Curation',
-            'Win32 Native Automation',
-            'Enterprise RLHF & QA',
-          ].map((x, i) => (
+          {keywords.map((x, i) => (
             <span className={`keyword keyword-${i}`} key={x}>
               {x}
             </span>
@@ -493,13 +600,14 @@ function About() {
 
 function Experience() {
   const [active, setActive] = useState(0);
+
   return (
     <section className="experience section page-width" id="experience">
       <Reveal>
         <SectionIntro
           eyebrow="02 / TRACK RECORD"
-          title={'Model engineering &amp; <em>enterprise rigor.</em>'}
-          copy="My hands-on track record developing autonomous SLM engines, fine-tuning causal models on edge hardware, and conducting enterprise evaluation & data grounding for tier-1 pipelines."
+          title={'Professional experience &amp; <em>technical evidence.</em>'}
+          copy="My track record developing autonomous local AI systems, building software workflows, and conducting systematic model evaluation under strict rubrics."
         />
       </Reveal>
       <div className="experience-layout">
@@ -525,10 +633,10 @@ function Experience() {
           <motion.article
             key={active}
             className="experience-detail"
-            initial={{ opacity: 0, x: 18 }}
+            initial={{ opacity: 0, x: 14 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -12 }}
-            transition={{ duration: 0.35 }}
+            exit={{ opacity: 0, x: -10 }}
+            transition={{ duration: 0.3 }}
           >
             <div className="detail-top">
               <span>{experience[active].period}</span>
@@ -552,47 +660,209 @@ function Experience() {
   );
 }
 
-function XyverionShowcase() {
+function SelectedWork({ onNavigate }) {
+  return (
+    <section className="selected-work-section section page-width" id="work">
+      <Reveal>
+        <SectionIntro
+          eyebrow="03 / SELECTED WORK"
+          title={'Practical AI software &amp; <em>model systems.</em>'}
+          copy="Featured engineering work turning causal language models and agentic tool-use into functional, locally executed desktop software."
+        />
+      </Reveal>
+
+      <Reveal delay={0.08}>
+        <div className="flagship-feature-card">
+          <div className="feature-card-content">
+            <div className="feature-badge-row">
+              <span className="badge-flagship">FLAGSHIP PROJECT</span>
+              <span className="badge-category">LOCAL AI &amp; AUTONOMOUS SYSTEMS</span>
+            </div>
+            <h3>XYVERION 3.0</h3>
+            <h4>Autonomous Desktop AI &amp; Local SLM Engine</h4>
+            <p>
+              An autonomous desktop AI system powered by a fine-tuned causal language model.
+              Combines 4-bit QLoRA adaptation, automated Safetensors weight fusion, native
+              Win32 desktop automation, and persistent SQLite memory into a unified desktop client.
+            </p>
+
+            <div className="feature-metric-strip">
+              <div className="metric-pill">
+                <strong>1.2473</strong>
+                <span>Val Loss</span>
+              </div>
+              <div className="metric-pill">
+                <strong>1,749</strong>
+                <span>Instruction Dataset</span>
+              </div>
+              <div className="metric-pill">
+                <strong>112</strong>
+                <span>Fused Shards</span>
+              </div>
+              <div className="metric-pill">
+                <strong>&lt; 0.3s</strong>
+                <span>Win32 Latency</span>
+              </div>
+            </div>
+
+            <div className="feature-tags">
+              <span>Local SLM</span>
+              <span>4-Bit QLoRA</span>
+              <span>Safetensors Fusion</span>
+              <span>Win32 Ctypes</span>
+              <span>SQLite Memory</span>
+              <span>Edge WebView2</span>
+            </div>
+
+            <div className="feature-actions">
+              <button className="button button-primary" onClick={() => onNavigate('xyverion')}>
+                EXPLORE CASE STUDY <ArrowDownRight size={16} />
+              </button>
+            </div>
+          </div>
+
+          <div className="feature-card-preview" onClick={() => onNavigate('xyverion')}>
+            <img
+              src={dashboardImg}
+              alt="XYVERION 3.0 desktop interface preview"
+              loading="lazy"
+            />
+            <div className="preview-overlay">
+              <span>View Full Case Study &amp; Technical Breakdown <ArrowUpRight size={14} /></span>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+function ScreenshotLightbox({ image, caption, onClose }) {
+  useEffect(() => {
+    const fn = (e) => e.key === 'Escape' && onClose();
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', fn);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', fn);
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="lightbox-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+        <button className="lightbox-close" onClick={onClose} aria-label="Close image preview">
+          <X size={20} />
+        </button>
+        <img src={image} alt={caption} />
+        <div className="lightbox-caption">{caption}</div>
+      </div>
+    </motion.div>
+  );
+}
+
+function XyverionCaseStudy() {
+  const [activeImage, setActiveImage] = useState(null);
+
+  const stages = [
+    [
+      '01',
+      'Data Curation & SFT',
+      'Curated a 1,749-example multi-turn instruction dataset formatted with deductive reasoning, tool schemas, and strict creator guardrails.',
+    ],
+    [
+      '02',
+      '4-Bit QLoRA Fine-Tuning',
+      'Fine-tuned a causal LLM using NF4 quantization, paged AdamW, and targeted low-rank adapter matrices (r=16, α=32), driving validation loss from 1.6048 to 1.2473.',
+    ],
+    [
+      '03',
+      'Safetensors Weight Fusion',
+      'Automated post-training script merging 112 LoRA adapter shards directly into base safetensors weights for zero runtime adapter overhead.',
+    ],
+    [
+      '04',
+      'Evaluation & Human Feedback',
+      'Systematic output evaluation, comparative ranking, error taxonomy categorization, and alignment validation against target guidelines.',
+    ],
+    [
+      '05',
+      'Win32 Systems Integration',
+      'Bound model outputs directly to native Win32 C APIs using Python ctypes for 55+ natural voice actions, GDI capture, and window management.',
+    ],
+    [
+      '06',
+      'Local SLM Deployment',
+      'Packaged an offline-capable small language model with persistent SQLite episodic memory and automated GPU VRAM lifecycle management.',
+    ],
+  ];
+
   return (
     <section className="xyverion-section" id="xyverion">
       <div className="page-width">
         <Reveal>
           <div className="xyverion-head">
             <div className="xyverion-badge-row">
-              <span className="badge-live">
-                <span className="status-dot" /> PRODUCTION LIVE BUILD
-              </span>
+              <span className="badge-live">FLAGSHIP CASE STUDY</span>
               <span className="badge-arch">AUTONOMOUS DESKTOP AI &amp; LOCAL SLM ENGINE</span>
             </div>
             <h2>
               XYVERION 3.0 —<br />
-              <em>Autonomous Desktop AI &amp; Local SLM.</em>
+              <em>Autonomous Desktop AI &amp; Local SLM Engine.</em>
             </h2>
             <p className="section-intro">
-              XYVERION 3.0 is my flagship applied AI system where I fine-tuned open-source causal
-              language models on consumer hardware, engineered automated zero-latency safetensors
-              weight fusion, and integrated ultra-low latency native Win32 operating system execution.
+              I engineered a local AI desktop system combining a fine-tuned language model, native
+              Windows automation, persistent memory, and a modern desktop client.
             </p>
           </div>
         </Reveal>
 
-        {/* TECH CHIPS */}
+        {/* SCREENSHOT GALLERY */}
         <Reveal delay={0.06}>
-          <div className="xyverion-tech-chips">
-            <span className="tech-chip primary">Python 3.13</span>
-            <span className="tech-chip primary">PyTorch</span>
-            <span className="tech-chip primary">Hugging Face Transformers</span>
-            <span className="tech-chip primary">PEFT (QLoRA)</span>
-            <span className="tech-chip primary">bitsandbytes (NF4)</span>
-            <span className="tech-chip primary">Safetensors Fusion</span>
-            <span className="tech-chip">Win32 API (Ctypes)</span>
-            <span className="tech-chip">SQLite Vector/Memory</span>
-            <span className="tech-chip">Microsoft Edge WebView2</span>
-            <span className="tech-chip">Edge VRAM Optimization</span>
+          <div className="screenshot-gallery">
+            <div className="gallery-card primary-card" onClick={() => setActiveImage({ src: dashboardImg, caption: 'XYVERION 3.0 desktop interface' })}>
+              <div className="gallery-img-wrap">
+                <img
+                  src={dashboardImg}
+                  alt="XYVERION 3.0 desktop interface showing modes of thinking and neural engine status"
+                  loading="lazy"
+                />
+                <div className="zoom-hint">
+                  <ZoomIn size={16} /> Click to expand
+                </div>
+              </div>
+              <div className="gallery-caption">
+                <strong>XYVERION 3.0 desktop interface</strong>
+                <span>Home dashboard with multi-mode reasoning controls and neural engine status</span>
+              </div>
+            </div>
+
+            <div className="gallery-card secondary-card" onClick={() => setActiveImage({ src: chatImg, caption: 'Local AI system / working UI' })}>
+              <div className="gallery-img-wrap">
+                <img
+                  src={chatImg}
+                  alt="Local AI system / working UI showing conversational tool calling and memory vault"
+                  loading="lazy"
+                />
+                <div className="zoom-hint">
+                  <ZoomIn size={16} /> Click to expand
+                </div>
+              </div>
+              <div className="gallery-caption">
+                <strong>Local AI system / working UI</strong>
+                <span>Active conversational workspace with reasoning protocols and context inspector</span>
+              </div>
+            </div>
           </div>
         </Reveal>
 
-        {/* METRICS */}
+        {/* METRICS GRID */}
         <Reveal delay={0.1}>
           <div className="metrics-grid">
             {xyverionMetrics.map((m, idx) => (
@@ -605,10 +875,24 @@ function XyverionShowcase() {
           </div>
         </Reveal>
 
+        {/* TECHNICAL STACK PILLS */}
+        <Reveal delay={0.14}>
+          <div className="stack-wrap">
+            <span className="mini-label">VERIFIED TECHNICAL STACK</span>
+            <div className="xyverion-tech-chips">
+              {xyverionStack.map((tech) => (
+                <span className="tech-chip" key={tech}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
         {/* 4 ARCHITECTURAL PILLARS */}
         <div className="pillars-grid">
           {xyverionPillars.map((p, i) => (
-            <Reveal delay={i * 0.08} key={p.num}>
+            <Reveal delay={i * 0.07} key={p.num}>
               <div className="pillar-card">
                 <div className="pillar-top">
                   <div className="pillar-icon">{p.icon}</div>
@@ -633,112 +917,113 @@ function XyverionShowcase() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
 
-function Pipeline() {
-  const stages = [
-    [
-      '01',
-      'Data Curation & SFT',
-      'I curate 1,749 multi-turn instruction pairs formatted with deductive reasoning, tool schemas, and strict creator guardrails.',
-    ],
-    [
-      '02',
-      '4-Bit QLoRA Tuning',
-      'I quantize causal base LLMs using NF4, paged AdamW, and low-rank adapter injection (r=16, α=32), driving validation loss from 1.6048 to 1.2473.',
-    ],
-    [
-      '03',
-      'Safetensors Fusion',
-      'I run an automated post-training pipeline fusing 112 LoRA shards directly into base safetensors weights for zero runtime adapter overhead.',
-    ],
-    [
-      '04',
-      'Evaluation & RLHF',
-      'I execute rigorous model evaluation, comparative human feedback scoring, and rubric-driven safety QA learned from enterprise Innodata workflows.',
-    ],
-    [
-      '05',
-      'Win32 Systems Hooks',
-      'I bind language outputs directly to ultra-low latency Win32 C APIs for 55+ natural voice actions, GDI capture, and window management.',
-    ],
-    [
-      '06',
-      'Edge SLM Deployment',
-      'I deploy private, lean, offline-capable small language models with persistent SQLite episodic memory and edge GPU VRAM flushing.',
-    ],
-  ];
-
-  return (
-    <section className="pipeline-section" id="pipeline">
-      <div className="page-width">
-        <Reveal>
-          <div className="pipeline-head">
-            <div>
-              <div className="eyebrow">
-                <span className="eyebrow-index">04 /</span> THE WORKFLOW
-              </div>
-              <h2>
-                From raw tokens to
-                <br />
-                <em>autonomous inference.</em>
-              </h2>
-            </div>
-            <p>
-              My end-to-end applied engineering pipeline: how I transform domain intent and human
-              feedback into quantized, fused, high-performance local language models.
-            </p>
-          </div>
-        </Reveal>
-        <div className="pipeline">
-          <div className="pipeline-line" />
-          {stages.map(([num, title, desc], i) => (
-            <Reveal delay={i * 0.06} key={title}>
-              <article className="pipeline-stage">
-                <span className="stage-num">{num}</span>
-                <div className="stage-icon">
-                  {i === 0 ? (
-                    <Network />
-                  ) : i === 1 ? (
-                    <Cpu />
-                  ) : i === 2 ? (
-                    <Layers />
-                  ) : i === 3 ? (
-                    <ShieldCheck />
-                  ) : i === 4 ? (
-                    <Terminal />
-                  ) : (
-                    <Zap />
-                  )}
+        {/* TECHNICAL WORKFLOW */}
+        <div className="workflow-container">
+          <Reveal>
+            <div className="pipeline-head">
+              <div>
+                <div className="eyebrow">
+                  <span className="eyebrow-index">04 /</span> TECHNICAL WORKFLOW
                 </div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </article>
-            </Reveal>
-          ))}
+                <h2>
+                  From data to
+                  <br />
+                  <em>autonomous inference.</em>
+                </h2>
+              </div>
+              <p>
+                A systematic workflow translating instruction datasets and human feedback into
+                quantized, fused, and locally executed desktop intelligence.
+              </p>
+            </div>
+          </Reveal>
+          <div className="pipeline">
+            <div className="pipeline-line" />
+            {stages.map(([num, title, desc], i) => (
+              <Reveal delay={i * 0.05} key={title}>
+                <article className="pipeline-stage">
+                  <span className="stage-num">{num}</span>
+                  <div className="stage-icon">
+                    {i === 0 ? (
+                      <Network />
+                    ) : i === 1 ? (
+                      <Cpu />
+                    ) : i === 2 ? (
+                      <Layers />
+                    ) : i === 3 ? (
+                      <ShieldCheck />
+                    ) : i === 4 ? (
+                      <Terminal />
+                    ) : (
+                      <Zap />
+                    )}
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {activeImage && (
+          <ScreenshotLightbox
+            image={activeImage.src}
+            caption={activeImage.caption}
+            onClose={() => setActiveImage(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
 
-function Skills() {
-  const [selected, setSelected] = useState('GenAI & Model Fine-Tuning');
+function WhatIBuild() {
   return (
-    <section className="skills section page-width" id="skills">
+    <section className="what-i-build-section section page-width" id="build">
       <Reveal>
         <SectionIntro
-          eyebrow="05 / CAPABILITIES"
-          title={'Fine-tuning depth &amp; <em>systems engineering.</em>'}
-          copy="My specialized technical toolkit built around causal model fine-tuning, parameter-efficient adaptation, low-level OS automation, and enterprise evaluation rubrics."
+          eyebrow="05 / WHAT I BUILD"
+          title={'Practical software<br /><em>powered by intelligence.</em>'}
+          copy="I focus on turning AI capabilities into practical software — from autonomous desktop systems to conversational tools for real workflows."
+        />
+      </Reveal>
+      <div className="what-i-build-grid">
+        {whatIBuildCards.map((card, i) => (
+          <Reveal delay={i * 0.06} key={card.title}>
+            <div className="build-card">
+              <div className="build-card-top">
+                <div className="build-icon">{card.icon}</div>
+                <span className="build-tag">{card.tag}</span>
+              </div>
+              <h3>{card.title}</h3>
+              <p>{card.copy}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Capabilities() {
+  const [selected, setSelected] = useState('AI / Model Engineering');
+
+  return (
+    <section className="capabilities section page-width" id="capabilities">
+      <Reveal>
+        <SectionIntro
+          eyebrow="06 / CAPABILITIES"
+          title={'Technical foundation &amp; <em>applied depth.</em>'}
+          copy="A focused technical skillset across model engineering, system-level automation, software development, and evaluation."
         />
       </Reveal>
       <div className="skills-layout">
         <div className="skill-tabs">
-          {Object.keys(skills).map((key, i) => (
+          {Object.keys(capabilities).map((key, i) => (
             <button
               className={selected === key ? 'selected' : ''}
               key={key}
@@ -751,11 +1036,11 @@ function Skills() {
           ))}
         </div>
         <motion.div className="skill-cloud" layout key={selected}>
-          {skills[selected].map((skill, i) => (
+          {capabilities[selected].map((skill, i) => (
             <motion.span
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.035 }}
+              transition={{ delay: i * 0.025 }}
               key={skill}
               className="skill-chip"
             >
@@ -779,7 +1064,7 @@ function ResearchVisual({ accent, id }) {
           </div>
           <div className="threat-path path-1" />
           <div className="threat-path path-2" />
-          <span className="visual-code">0110 / 1001 / 1100</span>
+          <span className="visual-code">THREAT / ANOMALY</span>
         </>
       ) : id === '02' ? (
         <>
@@ -794,16 +1079,15 @@ function ResearchVisual({ accent, id }) {
       ) : id === '03' ? (
         <>
           <div className="news-card">
-            <span>CLAIM</span>
+            <span>VERIFICATION</span>
             <b>context</b>
-            <small>verified / uncertain</small>
+            <small>NLP / hybrid classification</small>
           </div>
           <div className="news-pulse" />
         </>
       ) : id === '04' ? (
         <>
           <div className="climate-orbit orbit-a" />
-          <div className="climate-orbit orbit-b" />
           <div className="climate-core" />
         </>
       ) : (
@@ -811,11 +1095,9 @@ function ResearchVisual({ accent, id }) {
           <div className="gen-node n1" />
           <div className="gen-node n2" />
           <div className="gen-node n3" />
-          <div className="gen-node n4" />
           <div className="gen-line l1" />
           <div className="gen-line l2" />
-          <div className="gen-line l3" />
-          <span className="visual-code">TEXT → IMAGE → REASONING</span>
+          <span className="visual-code">TRANSFORMER → MULTIMODAL</span>
         </>
       )}
     </div>
@@ -826,8 +1108,8 @@ function ResearchCard({ item, onOpen }) {
   return (
     <motion.article
       className={`research-card accent-${item.accent}`}
-      whileHover={{ y: -7 }}
-      transition={{ duration: 0.25 }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
     >
       <ResearchVisual accent={item.accent} id={item.id} />
       <div className="research-card-body">
@@ -845,7 +1127,7 @@ function ResearchCard({ item, onOpen }) {
         </div>
         <div className="card-links">
           <button onClick={() => onOpen(item)}>
-            View research <ArrowUpRight size={15} />
+            View study <ArrowUpRight size={15} />
           </button>
           <a href={item.pdf} download>
             Download PDF <Download size={14} />
@@ -862,9 +1144,9 @@ function Research({ onOpen }) {
       <Reveal>
         <div className="research-header">
           <SectionIntro
-            eyebrow="06 / RESEARCH LAB"
+            eyebrow="07 / RESEARCH &amp; WRITING"
             title={'Independent inquiries,<br /><em>carefully examined.</em>'}
-            copy="My five formal and independent investigations spanning ML threat detection, medical computer vision, misinformation NLP, climate modeling, and generative model scaling laws."
+            copy="Five formal and independent research investigations spanning ML threat detection, medical computer vision, misinformation NLP, climate modeling, and generative model scaling laws."
           />
           <div className="research-count">
             <strong>05</strong>
@@ -879,7 +1161,7 @@ function Research({ onOpen }) {
       </Reveal>
       <div className="research-grid">
         {research.map((item, i) => (
-          <Reveal delay={i * 0.07} key={item.id}>
+          <Reveal delay={i * 0.05} key={item.id}>
             <ResearchCard item={item} onOpen={onOpen} />
           </Reveal>
         ))}
@@ -888,71 +1170,28 @@ function Research({ onOpen }) {
   );
 }
 
-function SupportingProjects() {
-  return (
-    <section className="projects section page-width" id="projects">
-      <Reveal>
-        <SectionIntro
-          eyebrow="07 / FOUNDATIONAL WORK"
-          title={'Full-stack systems &amp; <em>web interfaces.</em>'}
-          copy="My foundational software development experience prior to specialized GenAI engineering, demonstrating strong competencies across modern web architecture, JavaScript, and API integrations."
-        />
-      </Reveal>
-      <div className="project-slate">
-        <div className="project-slate-top">
-          <span>WEB APPLICATIONS &amp; SYSTEMS INTEGRATION</span>
-          <span>2022 — 2024</span>
-        </div>
-        <div className="project-slate-main">
-          <div className="project-mark">
-            <span />
-            <span />
-            <span />
-          </div>
-          <div>
-            <h3>Interactive Full-Stack Web Applications</h3>
-            <p>
-              I engineered responsive applications utilizing modern JavaScript, HTML5/CSS3, and
-              dynamic API endpoints. This serves as the web and client foundation for desktop AI
-              runtimes such as Microsoft Edge WebView2.
-            </p>
-          </div>
-          <span className="project-status">DETAILS ON REQUEST</span>
-        </div>
-      </div>
-      <div className="supporting-work">
-        <span>SUPPORTING BACKGROUND</span>
-        <div>
-          <b>Digital Identity &amp; Visual Design</b>
-          <small>Freelance · 2022 — 2023</small>
-        </div>
-        <div>
-          <b>Web Solutions &amp; Client Engineering</b>
-          <small>Freelance · 2022 — 2024</small>
-        </div>
-        <div>
-          <b>IELTS Academic Band 7.5 (C1)</b>
-          <small>IDP Education · Sep 2025</small>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Education() {
   return (
-    <section className="education section page-width">
+    <section className="education section page-width" id="education">
       <Reveal>
         <SectionIntro
           eyebrow="08 / CREDENTIALS"
-          title={'Academic foundation &amp; <em>C1 language fluency.</em>'}
-          copy="My academic foundation and certified English fluency record, reflecting strong quantitative and verbal communication credentials."
+          title={'Academic foundation &amp; <em>certified language fluency.</em>'}
+          copy="My current and foundational academic path, paired with certified English communication credentials."
         />
       </Reveal>
       <div className="education-grid">
+        <article className="uopeople-card">
+          <div className="edu-badge">CURRENT &amp; FUTURE PATH</div>
+          <div className="edu-icon"><GraduationCap size={22} /></div>
+          <h3>B.S. Computer Science</h3>
+          <p className="edu-institution">University of the People</p>
+          <b className="starting-pill">Starting November 2026</b>
+        </article>
+
         <article>
-          <span>ACADEMIC FOUNDATION</span>
-          <h3>Higher Secondary Certificate (HSC) — Science Stream</h3>
+          <span>FOUNDATIONAL EDUCATION</span>
+          <h3>Higher Secondary Certificate (HSC) — Science</h3>
           <b>78.50%</b>
           <small>2020 — 2022</small>
           <div className="edu-rule" />
@@ -960,6 +1199,7 @@ function Education() {
           <b>85.20%</b>
           <small>2020</small>
         </article>
+
         <article className="ielts-card">
           <span>CERTIFIED ENGLISH FLUENCY</span>
           <div className="band">
@@ -995,16 +1235,16 @@ function Contact() {
         <div className="contact-card">
           <div className="contact-orbit" />
           <div className="eyebrow">
-            <span className="status-dot" /> AVAILABLE FOR APPLIED GENAI &amp; LLM SYSTEMS ROLES
+            <span className="status-dot" /> OPEN TO AI ENGINEERING, PRODUCT &amp; COLLABORATION OPPORTUNITIES
           </div>
           <h2>
-            Let’s build &amp; fine-tune
+            Let’s build &amp;
             <br />
-            <em>exceptional AI.</em>
+            <em>collaborate.</em>
           </h2>
           <p>
-            Whether you are looking for custom model fine-tuning (QLoRA/PEFT), local SLM edge architecture,
-            complex alignment dataset curation, or enterprise model evaluation, I would love to connect.
+            I'm interested in building AI products, engineering LLM-powered systems, collaborating
+            on applied AI projects, and developing automation that solves real operational problems.
           </p>
           <div className="contact-actions">
             <a className="button button-primary" href="mailto:durgeshunde@gmail.com">
@@ -1068,16 +1308,16 @@ function ResearchModal({ item, onClose }) {
     >
       <motion.div
         className="research-modal"
-        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        initial={{ opacity: 0, y: 24, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 20, scale: 0.98 }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        exit={{ opacity: 0, y: 16, scale: 0.98 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
         <div className="modal-top">
-          <span>RESEARCH LAB / {item.id}</span>
+          <span>RESEARCH &amp; WRITING / {item.id}</span>
           <button onClick={onClose} aria-label="Close research details">
             <X size={20} />
           </button>
@@ -1123,7 +1363,7 @@ function ResearchModal({ item, onClose }) {
           </div>
         </div>
         <div className="modal-footer">
-          <span>Original document · download unchanged</span>
+          <span>Original document · research study download</span>
           <a className="button button-primary" href={item.pdf} download>
             Download full research paper <Download size={16} />
           </a>
@@ -1151,11 +1391,11 @@ function App() {
         <Hero onNavigate={navigate} />
         <About />
         <Experience />
-        <XyverionShowcase />
-        <Pipeline />
-        <Skills />
+        <SelectedWork onNavigate={navigate} />
+        <XyverionCaseStudy />
+        <WhatIBuild />
+        <Capabilities />
         <Research onOpen={setModal} />
-        <SupportingProjects />
         <Education />
         <Contact />
       </main>
@@ -1169,8 +1409,20 @@ function App() {
               <em>UNDE</em>
             </span>
           </a>
-          <span>Applied GenAI &amp; LLM Systems Engineer · 4-Bit QLoRA Fine-Tuning</span>
-          <span>© {new Date().getFullYear()} Durgesh Unde</span>
+          <div className="footer-center">
+            <span>AI Engineer · Founder · Builder</span>
+            <small>LLMs · AI Agents · Automation · Applied AI</small>
+          </div>
+          <div className="footer-links">
+            <a href="https://www.linkedin.com/in/durgesh-u-89911241b/" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a href="https://github.com/durgeshunde/durgesh-unde-portfolio" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a href="mailto:durgeshunde@gmail.com">Email</a>
+            <span className="footer-copy">© {new Date().getFullYear()} Durgesh Unde</span>
+          </div>
         </div>
       </footer>
       <AnimatePresence>
