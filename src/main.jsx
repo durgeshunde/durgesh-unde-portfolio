@@ -337,7 +337,6 @@ const capabilities = {
     'CSS3',
     'REST APIs',
     'Git',
-    'GitHub',
   ],
   'Quality / Evaluation': [
     'Model Output Evaluation',
@@ -619,7 +618,7 @@ function Experience() {
               onClick={() => setActive(i)}
             >
               <span className="timeline-index">
-                {item.current ? <span className="pulse" /> : item.period.split(' ')[0]}
+                {item.current ? <span className="pulse" /> : <span className="timeline-dot" />}
               </span>
               <span>
                 <b>{item.company}</b>
@@ -1267,13 +1266,6 @@ function Contact() {
           </div>
           <div className="social-placeholders">
             <a
-              href="https://github.com/durgeshunde/durgesh-unde-portfolio"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub <small>durgeshunde/durgesh-unde-portfolio</small>
-            </a>
-            <a
               href="https://www.linkedin.com/in/durgesh-u-89911241b/"
               target="_blank"
               rel="noreferrer"
@@ -1416,9 +1408,6 @@ function App() {
           <div className="footer-links">
             <a href="https://www.linkedin.com/in/durgesh-u-89911241b/" target="_blank" rel="noreferrer">
               LinkedIn
-            </a>
-            <a href="https://github.com/durgeshunde/durgesh-unde-portfolio" target="_blank" rel="noreferrer">
-              GitHub
             </a>
             <a href="mailto:durgeshunde@gmail.com">Email</a>
             <span className="footer-copy">© {new Date().getFullYear()} Durgesh Unde</span>

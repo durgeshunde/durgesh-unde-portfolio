@@ -419,6 +419,20 @@ nav a span { color: #5e6d6d; font: 10px 'DM Mono', monospace; margin-right: 5px;
   background: var(--cyan);
   box-shadow: 0 0 10px var(--cyan);
 }
+.timeline-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5d6f6c;
+  border: 1px solid rgba(224, 233, 223, 0.2);
+  transition: background .2s, border-color .2s, box-shadow .2s;
+}
+.timeline-trigger.active .timeline-dot {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
 .timeline-trigger b { display: block; font-size: 13px; color: #dde5df; }
 .timeline-trigger small { display: block; font-size: 11px; color: #7f908c; margin-top: 3px; }
 .timeline-trigger svg { color: #5d6f6c; transition: transform .2s, color .2s; }
