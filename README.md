@@ -20,11 +20,14 @@ npm run preview
 
 ## Editing
 
-- `src/Portfolio.jsx`: content, project links, process tabs and canvas sculpture.
-- `src/redesign.css`: responsive layout, visual system and reduced motion support.
+- `src/main.jsx`: original portfolio sections, content, links and research archive.
+- `src/styles.css`: original dark visual identity and responsive layout.
+- `src/enhancements.css`: added animation, depth effects and Apart research styling.
+- `src/NeuralScene.jsx`: lazy loaded Three.js scene and accessible controls.
+- `src/ApartResearch.jsx`: featured Apart research project.
 - `public/assets/`: existing application screenshots and resume.
 - `public/research/`: earlier independent writing, retained as PDF downloads.
 
-The hero sculpture is procedural Canvas 2D, with pointer interaction, three selectable forms and a pause control. It respects reduced motion and skips drawing outside the viewport. No external model or graphics API is required. Fonts use Google Fonts with local fallbacks.
+The hero contains a lazy loaded Three.js WebGL scene with two modes, pointer interaction and a pause control. It respects reduced motion, caps rendering at 30 fps and skips rendering when outside the viewport or when the page is hidden. A CSS orbital illustration appears if WebGL is unavailable. Fonts use Google Fonts with local fallbacks.
 
-Research graphics are conceptual illustrations, not experimental results. Product screenshots are the existing application screenshots; the business assistant card is labeled as an illustrative interface. The research repository and submitted report are linked without modification.
+Research graphics are conceptual illustrations, not experimental results. Product screenshots are the original application screenshots. The Apart research repository and submitted report are linked without modification.

@@ -1,0 +1,542 @@
+/* Motion and depth layered onto the original dark portfolio. */
+.signal-panel {
+  pointer-events: auto;
+  z-index: 3;
+  width: 400px;
+  right: max(32px, calc((100vw - 1280px) / 2));
+  background: linear-gradient(
+    145deg,
+    rgba(20, 37, 39, 0.85),
+    rgba(8, 13, 17, 0.7)
+  );
+  border-color: rgba(165, 229, 219, 0.19);
+  box-shadow:
+    0 30px 100px #0005,
+    inset 0 1px 0 #a5e5db12;
+  transform: perspective(1200px) rotateY(-8deg) translateY(-46%);
+  padding: 22px;
+}
+.hero h1 {
+  max-width: calc(100% - 390px);
+  font-size: clamp(48px, 6.4vw, 96px);
+}
+.hero-copy {
+  max-width: 580px;
+}
+.hero-foot {
+  max-width: 650px;
+}
+.hero-role {
+  max-width: 660px;
+  line-height: 1.9;
+}
+.hero-grid {
+  animation: grid-drift 30s linear infinite;
+  opacity: 0.6;
+}
+.hero-glow {
+  opacity: 0.15;
+  animation: atmosphere 12s ease-in-out infinite alternate;
+}
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 90% 55%,
+    rgba(102, 111, 199, 0.065),
+    transparent 50%
+  );
+}
+.neural-viewport {
+  height: 330px;
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(ellipse at center, #a5e5db08, transparent 65%);
+  touch-action: pan-y;
+}
+.neural-viewport canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scene-coordinate,
+.scene-caption {
+  position: absolute;
+  bottom: 8px;
+  font:
+    8px "DM Mono",
+    monospace;
+  letter-spacing: 0.1em;
+  color: #7d9590;
+  pointer-events: none;
+}
+.scene-coordinate {
+  left: 0;
+}
+.scene-caption {
+  right: 0;
+  font-size: 7px;
+}
+.scene-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 8px;
+}
+.scene-controls > div {
+  display: flex;
+  gap: 5px;
+}
+.scene-controls button {
+  border: 1px solid var(--line);
+  background: #a5e5db05;
+  color: #92aaa4;
+  padding: 9px 10px;
+  font:
+    9px "DM Mono",
+    monospace;
+  cursor: pointer;
+}
+.scene-controls button[aria-pressed="true"] {
+  color: var(--cyan);
+  border-color: #a5e5db60;
+  background: #a5e5db12;
+}
+.scene-controls button:hover {
+  border-color: var(--cyan);
+}
+.signal-meta {
+  font-size: 7px;
+  letter-spacing: 0.06em;
+}
+.signal-label {
+  font-size: 9px;
+  line-height: 1.7;
+}
+.neural-loading {
+  height: 330px;
+  background: radial-gradient(circle, #a5e5db0b, transparent 65%);
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  font:
+    10px "DM Mono",
+    monospace;
+}
+.neural-fallback {
+  position: absolute;
+  inset: 50px 35px;
+  perspective: 700px;
+  display: grid;
+  place-items: center;
+}
+.neural-fallback i {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #a5e5db55;
+  border-radius: 50%;
+  transform: rotateX(62deg);
+  animation: fallback-orbit 18s linear infinite;
+}
+.neural-fallback i:nth-child(2) {
+  transform: rotateY(65deg);
+  animation-delay: -6s;
+}
+.neural-fallback i:nth-child(3) {
+  transform: rotateX(40deg) rotateY(60deg);
+  animation-delay: -12s;
+}
+.neural-fallback b {
+  font:
+    26px "DM Mono",
+    monospace;
+  color: var(--cyan);
+}
+.flagship-feature-card {
+  transform: perspective(1400px) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+  transition:
+    transform 0.35s ease,
+    border-color 0.3s,
+    box-shadow 0.3s;
+  will-change: transform;
+}
+.flagship-feature-card:hover {
+  box-shadow: 0 30px 80px #0005;
+}
+.feature-card-preview {
+  perspective: 1000px;
+  overflow: visible;
+}
+.feature-card-preview img {
+  transform: rotateY(-6deg) rotateX(3deg);
+  transition:
+    transform 0.7s,
+    filter 0.7s;
+  box-shadow: 15px 20px 45px #0008;
+}
+.flagship-feature-card:hover .feature-card-preview img {
+  transform: rotateY(0) rotateX(0) translateY(-5px);
+}
+.research-card .research-visual {
+  transition: filter 0.5s;
+}
+.research-card:hover .research-visual {
+  filter: brightness(1.2);
+}
+.research-visual .gen-node,
+.news-pulse {
+  animation: signal-breathe 4s ease-in-out infinite;
+}
+.climate-orbit {
+  animation: climate-turn 18s linear infinite;
+}
+.skill-chip {
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.skill-chip:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px #a5e5db15;
+}
+.scroll-line {
+  position: relative;
+  overflow: hidden;
+}
+.scroll-line:after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 1px;
+  left: -12px;
+  background: var(--cyan);
+  animation: scroll-signal 2.4s ease-in-out infinite;
+}
+.apart-feature {
+  margin-top: 55px;
+  padding: 40px;
+  border: 1px solid #a5e5db40;
+  background:
+    radial-gradient(ellipse at 85% 40%, #a5e5db0b, transparent 55%), #0d1519;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 45px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.apart-feature:before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 30%;
+  left: 0;
+  top: 0;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  animation: research-sweep 6s ease-in-out infinite;
+}
+.apart-feature .eyebrow {
+  color: var(--amber);
+  line-height: 1.7;
+  font-size: 9px;
+}
+.apart-feature h3 {
+  font-size: clamp(28px, 3vw, 41px);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 20px 0;
+}
+.apart-feature h3 em {
+  font-family: "Playfair Display", serif;
+  color: var(--cyan);
+  font-weight: 500;
+}
+.apart-feature p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #a5b7b2;
+}
+.apart-feature .apart-limit {
+  font-size: 11px;
+  color: #7f9690;
+}
+.apart-feature .button {
+  margin-top: 24px;
+  letter-spacing: 0.05em;
+}
+.apart-network {
+  min-width: 0;
+  position: relative;
+  perspective: 900px;
+}
+.apart-network svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 18px #a5e5db18);
+  transform: rotateX(12deg) rotateY(-12deg);
+  animation: network-float 9s ease-in-out infinite alternate;
+}
+.apart-network .agent-path {
+  stroke: #a5e5db55;
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 5 9;
+  animation: graph-flow 20s linear infinite;
+}
+.apart-network .context-path {
+  stroke: #e9bd7255;
+  stroke-width: 1;
+  fill: none;
+}
+.apart-network circle {
+  fill: #13242a;
+  stroke: #a5e5db88;
+  stroke-width: 1;
+}
+.apart-network text {
+  fill: #b6d9d0;
+  font:
+    10px "DM Mono",
+    monospace;
+  text-anchor: middle;
+}
+.apart-network .center-node {
+  fill: #1a2726;
+  stroke: #e9bd72;
+}
+.apart-network .center-label {
+  fill: #e9bd72;
+  font-size: 7px;
+}
+.apart-network .network-label {
+  display: block;
+  text-align: center;
+  color: #79938c;
+  font:
+    8px "DM Mono",
+    monospace;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  margin-top: 20px;
+}
+.apart-tag-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.apart-tag-row span {
+  border: 1px solid var(--line);
+  padding: 6px 8px;
+  font:
+    9px "DM Mono",
+    monospace;
+  color: #aac1b9;
+}
+@keyframes grid-drift {
+  to {
+    background-position: 80px 80px;
+  }
+}
+@keyframes atmosphere {
+  to {
+    transform: translate(-50px, 30px) scale(1.2);
+    opacity: 0.24;
+  }
+}
+@keyframes fallback-orbit {
+  to {
+    transform: rotateX(60deg) rotateY(360deg);
+  }
+}
+@keyframes signal-breathe {
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes climate-turn {
+  to {
+    transform: translate(-50%, -50%) rotate(386deg);
+  }
+}
+@keyframes scroll-signal {
+  to {
+    left: 100%;
+  }
+}
+@keyframes research-sweep {
+  50% {
+    left: 70%;
+  }
+}
+@keyframes network-float {
+  to {
+    transform: rotateX(-8deg) rotateY(10deg) translateY(-9px);
+  }
+}
+@keyframes graph-flow {
+  to {
+    stroke-dashoffset: -280;
+  }
+}
+@media (max-width: 1200px) and (min-width: 901px) {
+  .signal-panel {
+    width: 340px;
+    right: 28px;
+  }
+  .neural-viewport,
+  .neural-loading {
+    height: 290px;
+  }
+  .hero h1 {
+    max-width: calc(100% - 330px);
+    font-size: 6.3vw;
+  }
+  .hero-copy {
+    max-width: 52%;
+  }
+  .hero-foot {
+    max-width: 56%;
+  }
+  .hero-role {
+    max-width: 60%;
+  }
+  .hero-actions {
+    max-width: 58%;
+  }
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .signal-panel {
+    display: flex;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    display: block;
+    padding: 130px 0 55px;
+  }
+  .hero-content {
+    padding-top: 0;
+  }
+  .hero h1 {
+    max-width: 740px;
+    font-size: clamp(45px, 8vw, 72px);
+  }
+  .hero-copy {
+    max-width: 600px;
+  }
+  .hero-foot {
+    max-width: 100%;
+    margin-top: 45px;
+  }
+  .signal-panel {
+    display: flex;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: min(600px, calc(100% - 64px));
+    margin: 40px auto 0;
+    padding: 22px;
+  }
+  .neural-viewport,
+  .neural-loading {
+    height: 340px;
+  }
+  .apart-feature {
+    grid-template-columns: 1fr;
+    padding: 30px;
+    gap: 25px;
+  }
+  .apart-network {
+    max-width: 430px;
+    width: 100%;
+    margin: auto;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 115px;
+  }
+  .hero h1 {
+    font-size: clamp(41px, 10vw, 60px);
+  }
+  .hero .eyebrow {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+  .hero-role {
+    font-size: 8px;
+    line-height: 1.9;
+  }
+  .hero-actions {
+    align-items: stretch;
+  }
+  .signal-panel {
+    width: calc(100% - 32px);
+    padding: 18px;
+    margin-top: 35px;
+  }
+  .signal-label {
+    font-size: 8px;
+  }
+  .neural-viewport,
+  .neural-loading {
+    height: 285px;
+  }
+  .scene-controls button {
+    padding: 10px;
+    font-size: 9px;
+  }
+  .signal-meta {
+    font-size: 6px;
+    gap: 6px;
+  }
+  .apart-feature {
+    padding: 25px 20px;
+  }
+  .apart-feature .button {
+    font-size: 9px;
+    padding: 14px;
+  }
+  .apart-network .network-label {
+    font-size: 7px;
+  }
+  .feature-card-preview img {
+    transform: none;
+  }
+  .flagship-feature-card {
+    transform: none !important;
+  }
+  .apart-feature .eyebrow {
+    font-size: 8px;
+  }
+  .apart-tag-row span {
+    font-size: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid,
+  .hero-glow,
+  .apart-network svg,
+  .apart-feature:before,
+  .research-visual .gen-node,
+  .news-pulse,
+  .climate-orbit,
+  .scroll-line:after,
+  .neural-fallback i {
+    animation: none;
+  }
+  .flagship-feature-card,
+  .feature-card-preview img {
+    transform: none !important;
+    transition: none;
+  }
+}
