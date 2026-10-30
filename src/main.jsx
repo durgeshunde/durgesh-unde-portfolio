@@ -147,10 +147,10 @@ const experience = [
     current: true,
     body: 'Building AI software across conversational AI, agentic workflows, desktop automation, LLM-based systems, and practical product applications.',
     bullets: [
-      'Developed and engineered XYVERION 3.0, a local autonomous AI desktop system powered by a fine-tuned causal language model.',
-      'Worked with model integration, tool calling, local model execution, application interfaces and automation.',
-      'Built native Windows automation and local AI system components.',
-      'Developed supporting software architecture around model execution, memory and system control.',
+      'Built a local desktop AI system using Python, PyTorch, Transformers, PEFT and 4-bit QLoRA.',
+      'Connected model inference to native Windows controls, SQLite conversation memory and an Edge WebView2 interface.',
+      'Developed a serverless website assistant with Cloudflare Workers, model API orchestration and KV conversation state.',
+      'Implemented bounded retries, model fallbacks, business-specific grounding and email notifications.',
     ],
   },
   {
@@ -470,7 +470,7 @@ function Hero({ onNavigate }) {
         <Reveal delay={0.04}>
           <div className="hero-name">DURGESH UNDE</div>
           <div className="hero-role">
-            AI ENGINEER &amp; FOUNDER <span>/</span> LLMs <span>/</span> AI AGENTS <span>/</span> AUTOMATION <span>/</span> MODEL ENGINEERING
+            AI ENGINEER <span>/</span> LLM APPLICATIONS <span>/</span> AGENT SYSTEMS <span>/</span> EVALUATION
           </div>
         </Reveal>
         <Reveal delay={0.07}>
@@ -482,8 +482,8 @@ function Hero({ onNavigate }) {
         </Reveal>
         <Reveal delay={0.12}>
           <p className="hero-copy">
-            I build AI-powered software across LLM fine-tuning, AI agents, conversational AI,
-            automation, model evaluation, and full-stack applications.
+            I build LLM applications across model adaptation, tool integration and evaluation:
+            native desktop AI, serverless conversational systems and reproducible multi-agent experiments.
           </p>
         </Reveal>
         <Reveal delay={0.18}>
@@ -503,7 +503,7 @@ function Hero({ onNavigate }) {
           <div className="hero-foot">
             <div>
               <span className="mini-label">CORE FOCUS</span>
-              <strong>LLMs · AI Agents · Automation · Model Engineering</strong>
+              <strong>PyTorch · QLoRA · Agent Systems · Evaluation</strong>
             </div>
             <div className="scroll-note">
               <span className="scroll-line" /> Scroll to explore
@@ -561,12 +561,13 @@ function About() {
         <Reveal delay={0.06} className="about-note">
           <div className="editorial-number">01</div>
           <p>
-            As the founder of XYVERION AI, I focus on turning AI capabilities into practical software
-            — from locally running language models and desktop automation to conversational systems for
-            real-world business workflows.
+            My engineering work connects model inference to useful software: native Windows actions,
+            persistent conversation memory, model API orchestration and application interfaces.
+            As Founder &amp; AI Engineer at XYVERION AI, I own the path from model adaptation to working desktop and web demonstrations.
           </p>
           <p style={{ marginTop: '16px', color: '#9fa9a7' }}>
-            I enjoy working where models, software and systems engineering meet.
+            My Apart Sprint research evaluates a four-agent benchmark across 630 saved LLM trajectories.
+            Professional model evaluation experience informs how I test grounding, failure modes and output quality.
           </p>
           <span className="line-accent" />
         </Reveal>
@@ -659,7 +660,7 @@ function SelectedWork({ onNavigate }) {
         <SectionIntro
           eyebrow="03 / SELECTED WORK"
           title={'Practical AI software &amp; <em>model systems.</em>'}
-          copy="Featured engineering work turning causal language models and agentic tool-use into functional, locally executed desktop software."
+          copy="Engineering work across local model adaptation, desktop agent systems and serverless conversational applications."
         />
       </Reveal>
 
@@ -724,6 +725,19 @@ function SelectedWork({ onNavigate }) {
             </div>
           </div>
         </div>
+      </Reveal>
+      <Reveal delay={0.08}>
+        <article className="apart-feature" style={{ marginTop: '28px' }}>
+          <div>
+            <div className="eyebrow">SERVERLESS CONVERSATIONAL AI</div>
+            <h3>XYVERION AI <em>Website Assistant</em></h3>
+            <p>A working conversational web application built with Cloudflare Workers, model API orchestration and KV-backed conversation state.</p>
+            <div className="apart-tag-row"><span>Cloudflare Workers</span><span>Model APIs</span><span>Conversation memory</span></div>
+            <p className="apart-limit">Implemented bounded retries, model fallback handling, business-specific grounding and email notifications around the conversation workflow.</p>
+            <a className="button button-primary" href="https://xyverionai.com/" target="_blank" rel="noreferrer">Try the live demo <ArrowUpRight size={16} /></a>
+          </div>
+          <div className="keyword-field"><div className="keyword-card keyword-main"><Workflow size={26} /><span>Model APIs<br /><strong>State · Tools · Reliability</strong></span></div></div>
+        </article>
       </Reveal>
     </section>
   );
@@ -1169,17 +1183,17 @@ function Education() {
       <Reveal>
         <SectionIntro
           eyebrow="08 / CREDENTIALS"
-          title={'Academic foundation &amp; <em>certified language fluency.</em>'}
-          copy="My current and foundational academic path, paired with certified English communication credentials."
+          title={'Technical learning &amp; <em>academic foundations.</em>'}
+          copy="Selected training in agent infrastructure, model integration and generative AI, alongside my Computer Science studies."
         />
       </Reveal>
       <div className="education-grid">
         <article className="uopeople-card">
-          <div className="edu-badge">CURRENT &amp; FUTURE PATH</div>
+          <div className="edu-badge">COMPUTER SCIENCE</div>
           <div className="edu-icon"><GraduationCap size={22} /></div>
           <h3>B.S. Computer Science</h3>
           <p className="edu-institution">University of the People</p>
-          <b className="starting-pill">Starting November 2026</b>
+          <b className="starting-pill">Pursuing</b>
         </article>
 
         <article>
@@ -1215,6 +1229,29 @@ function Education() {
             </span>
           </div>
           <small>September 2025 · IDP Education</small>
+        </article>
+      </div>
+      <div className="education-grid" style={{ marginTop: '24px' }}>
+        <article>
+          <span>SELECTED CERTIFICATIONS &amp; TRAINING · OCT 2026</span>
+          <h3>AWS Databases for Agentic AI</h3>
+          <p>Microcredential in the data layer of agentic AI applications.</p>
+          <h3><a href="https://verify.skilljar.com/c/pwvruczrzvuq" target="_blank" rel="noreferrer">Model Context Protocol: Advanced Topics</a></h3>
+          <small>Anthropic</small>
+        </article>
+        <article>
+          <span>MODEL INTEGRATION &amp; GENERATIVE AI · OCT 2026</span>
+          <h3><a href="https://verify.skilljar.com/c/idyuo5rocxxu" target="_blank" rel="noreferrer">Claude with Amazon Bedrock</a></h3>
+          <small>Anthropic</small>
+          <div className="edu-rule" />
+          <h3><a href="https://verify.skilljar.com/c/o4svdb8m5aat" target="_blank" rel="noreferrer">Generative AI Practitioner</a></h3>
+          <small>Dataiku</small>
+        </article>
+        <article>
+          <span>LANGUAGES</span>
+          <h3>English · Hindi · Marathi · German</h3>
+          <p>IELTS Academic 7.5 overall, CEFR C1.</p>
+          <a className="button button-ghost" href={resumeHref} download="Durgesh-Unde-AI-Engineer-Resume.pdf">Download AI engineer resume <Download size={15} /></a>
         </article>
       </div>
     </section>

@@ -15,7 +15,7 @@ export default function ApartResearch() {
           metrics actually tell us.
         </p>
         <div className="apart-tag-row">
-          <span>Four agent benchmark</span>
+          <span>630 LLM trajectories</span>
           <span>MI / CMI</span>
           <span>Qwen2.5 1.5B</span>
         </div>
