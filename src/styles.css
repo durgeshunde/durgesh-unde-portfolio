@@ -43,3 +43,7 @@ html[data-motion='off']{scroll-behavior:auto!important}html[data-motion='off'] *
 /* Keep anchored headings clear of the floating navigation. */
 .section,.xyverion-section{scroll-margin-top:0}
 @media(max-width:540px){.hero-name-clip{top:33%;padding-bottom:0}.hero-name-clip h1{font-size:34vw;line-height:1.12;text-align:center;letter-spacing:-.035em}.hero-name-clip h1>span{display:block}}
+/* Keep compact mobile menus inside even a 320px viewport. */
+body{min-width:280px}
+@media(max-width:540px){.nav-wrap nav.open{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 16px}.nav-wrap nav a{white-space:normal;font-size:10px;line-height:1.5}.nav-resume{white-space:nowrap}.nav-wrap nav{overflow-x:hidden}}
+@media(max-width:360px){.brand small{display:none}.brand{font-size:10px;gap:8px}.nav-resume{padding:0 8px;font-size:7px}.nav-wrap{gap:6px}.hero-availability{max-width:115px;font-size:5.5px;right:18px}}
