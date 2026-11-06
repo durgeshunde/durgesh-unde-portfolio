@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -27,9 +27,9 @@ import {
   ZoomIn
 } from 'lucide-react';
 import './styles.css';
-import './enhancements.css';
+import { MotionProvider, MotionControls, InteractionEffects, TechMarquee, useMotionPreference as useReducedMotion } from './MotionSystem';
 import ApartResearch from './ApartResearch';
-const NeuralScene = React.lazy(() => import('./NeuralScene'));
+const portraitHref = `${import.meta.env.BASE_URL}assets/durgesh-portrait.webp`;
 
 const assetBase = import.meta.env.BASE_URL;
 const resumeHref = `${assetBase}assets/durgesh-unde-resume.pdf`;
@@ -369,160 +369,65 @@ function Reveal({ children, className = '', delay = 0, y = 20 }) {
 }
 
 function Mark() {
-  return (
-    <div className="mark" aria-hidden="true">
-      <span />
-      <span />
-      <span />
-    </div>
-  );
+  return <span className="mark" aria-hidden="true">du.</span>;
 }
 
 function Header({ onNavigate }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const menuRef = useRef(null);
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 24);
-    window.addEventListener('scroll', fn);
-    return () => window.removeEventListener('scroll', fn);
+    const scroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', scroll, { passive: true });
+    return () => window.removeEventListener('scroll', scroll);
   }, []);
-
+  useEffect(() => {
+    if (!open) return;
+    const close = e => { if (e.key === 'Escape') { setOpen(false); menuRef.current?.focus(); } };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [open]);
   const nav = [
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'work', label: 'Selected Work' },
-    { id: 'xyverion', label: 'XYVERION 3.0' },
-    { id: 'capabilities', label: 'Capabilities' },
-    { id: 'research', label: 'Research' },
-    { id: 'education', label: 'Education' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'about', label: 'About' }, { id: 'work', label: 'Selected work' },
+    { id: 'experience', label: 'Experience' }, { id: 'capabilities', label: 'Expertise' },
+    { id: 'research', label: 'Research' }, { id: 'education', label: 'Education' },
   ];
-
-  const go = (id) => {
-    setOpen(false);
-    onNavigate(id);
-  };
-
-  return (
-    <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="nav-wrap">
-        <a
-          className="brand"
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            go('top');
-          }}
-        >
-          <Mark />
-          <span>
-            DURGESH
-            <br />
-            <em>UNDE</em>
-          </span>
-        </a>
-        <nav className={open ? 'open' : ''}>
-          {nav.map((item, i) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => {
-                e.preventDefault();
-                go(item.id);
-              }}
-            >
-              <span>0{i + 1}</span>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <div className="nav-actions">
-          <a className="nav-resume" href={resumeHref} download="Durgesh-Unde-Resume.pdf">
-            Resume <Download size={14} />
-          </a>
-          <button
-            className="menu-button"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+  const go = id => { setOpen(false); onNavigate(id); };
+  return <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
+    <div className="nav-wrap">
+      <a className="brand" href="#top" onClick={e => { e.preventDefault(); go('top'); }}>
+        <Mark /><span>DURGESH <b>UNDE</b><small>AI ENGINEER & FOUNDER</small></span>
+      </a>
+      <nav id="primary-navigation" aria-label="Main navigation" className={open ? 'open' : ''}>
+        {nav.map((item, i) => <a key={item.id} href={`#${item.id}`} onClick={e => { e.preventDefault(); go(item.id); }}><span>0{i+1}</span>{item.label}</a>)}
+      </nav>
+      <div className="nav-actions">
+        <a className="nav-resume" href="#contact" onClick={e => { e.preventDefault(); go('contact'); }}>LET’S TALK <ArrowUpRight size={17}/></a>
+        <button ref={menuRef} className="menu-button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="primary-navigation" onClick={() => setOpen(!open)}>{open ? <X size={22}/> : <Menu size={22}/>}</button>
       </div>
-    </header>
-  );
+    </div>
+  </header>;
 }
 
 function Hero({ onNavigate }) {
-  return (
-    <section className="hero" id="top">
-      <div className="hero-grid" />
-      <div className="hero-glow glow-one" />
-      <div className="hero-content page-width">
-        <Reveal>
-          <div className="eyebrow">
-            <span className="status-dot" /> OPEN TO AI ENGINEERING &amp; COLLABORATION OPPORTUNITIES{' '}
-            <span className="eyebrow-line" />
-          </div>
-        </Reveal>
-        <Reveal delay={0.04}>
-          <div className="hero-name">DURGESH UNDE</div>
-          <div className="hero-role">
-            AI ENGINEER <span>/</span> LLM APPLICATIONS <span>/</span> AGENT SYSTEMS <span>/</span> EVALUATION
-          </div>
-        </Reveal>
-        <Reveal delay={0.07}>
-          <h1>
-            Building AI systems
-            <br />
-            <em>that work beyond the demo.</em>
-          </h1>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <p className="hero-copy">
-            I build LLM applications across model adaptation, tool integration and evaluation:
-            native desktop AI, serverless conversational systems and reproducible multi-agent experiments.
-          </p>
-        </Reveal>
-        <Reveal delay={0.18}>
-          <div className="hero-actions">
-            <button className="button button-primary" onClick={() => onNavigate('work')}>
-              EXPLORE MY WORK <ArrowDownRight size={16} />
-            </button>
-            <button className="button button-quiet" onClick={() => onNavigate('xyverion')}>
-              XYVERION 3.0 <ArrowUpRight size={16} />
-            </button>
-            <a className="button button-ghost" href={resumeHref} download="Durgesh-Unde-Resume.pdf">
-              DOWNLOAD RESUME <Download size={15} />
-            </a>
-          </div>
-        </Reveal>
-        <Reveal delay={0.24}>
-          <div className="hero-foot">
-            <div>
-              <span className="mini-label">CORE FOCUS</span>
-              <strong>PyTorch · QLoRA · Agent Systems · Evaluation</strong>
-            </div>
-            <div className="scroll-note">
-              <span className="scroll-line" /> Scroll to explore
-            </div>
-          </div>
-        </Reveal>
-      </div>
-
-      <div className="signal-panel">
-        <div className="signal-label">SYSTEM ARCHITECTURE / LOCAL SLM &amp; AGENTS</div>
-        <React.Suspense fallback={<div className="neural-loading">INITIALIZING 3D SCENE</div>}><NeuralScene /></React.Suspense>
-        <div className="signal-meta">
-          <span>LOCAL SLM ENGINE</span>
-          <span>AUTONOMOUS AGENTS</span>
-          <span>WIN32 AUTOMATION</span>
-        </div>
-      </div>
-    </section>
-  );
+  const ref = useRef(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const textX = useTransform(scrollYProgress, [0, 1], ['0%', '-14%']);
+  const photoY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+  const intro = { initial: reduced ? false : { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { duration: .9, ease: [.16, 1, .3, 1] } };
+  return <section className="portrait-hero" id="top" ref={ref}>
+    <div className="hero-orbit orbit-left" aria-hidden="true"/><div className="hero-orbit orbit-right" aria-hidden="true"/>
+    <motion.div className="hero-role" {...intro}><span>AI Engineer</span><span>&amp; Founder.</span><small>LLMs · Agents · Automation</small></motion.div>
+    <motion.div className="hero-availability" {...intro}><span className="status-dot"/> OPEN TO OPPORTUNITIES<small>Shrirampur / Pune, India</small></motion.div>
+    <div className="hero-name-clip"><motion.h1 style={{ x: reduced ? 0 : textX }} initial={reduced ? false : { y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1.2, ease: [.16, 1, .3, 1], delay: .1 }}><span>DURGESH</span>{' '}<span>UNDE</span></motion.h1></div>
+    <motion.div className="portrait-stage" style={{ y: reduced ? 0 : photoY }} initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: .15 }}>
+      <img className="hero-portrait" src={portraitHref} alt="Durgesh Unde, AI Engineer and founder of XYVERION AI" width="1024" height="1024" fetchPriority="high" />
+    </motion.div>
+    <div className="hero-bottom-left"><span>TURNING INTELLIGENCE<br/>INTO REAL-WORLD SOFTWARE.</span><button className="pill-button" onClick={() => onNavigate('work')}>Explore my work <ArrowUpRight size={20}/></button></div>
+    <button className="hero-scroll" onClick={() => onNavigate('about')}><span>Scroll to explore</span><ArrowDownRight size={56} strokeWidth={1}/></button>
+    <span className="hero-edition">PORTFOLIO / 2026</span>
+  </section>;
 }
 
 function SectionIntro({ eyebrow, title, copy, id }) {
@@ -539,56 +444,22 @@ function SectionIntro({ eyebrow, title, copy, id }) {
 }
 
 function About() {
-  const keywords = [
-    'LLMs',
-    'AI Agents',
-    'Conversational AI',
-    'Model Engineering',
-    'Automation',
-    'AI Evaluation',
-  ];
-
-  return (
-    <section className="about section page-width" id="about">
-      <Reveal>
-        <SectionIntro
-          eyebrow="01 / PROFILE"
-          title={'Building AI systems<br /><em>from the model layer up.</em>'}
-          copy="I build AI systems across LLM fine-tuning, AI agents, conversational AI, automation, model evaluation and full-stack application development."
-        />
+  const keywords = ['LLMs', 'AI Agents', 'Conversational AI', 'Model Engineering', 'Automation', 'AI Evaluation'];
+  return <section className="about section dark-section" id="about"><div className="page-width">
+    <Reveal><div className="section-kicker"><span>01 / THE PERSON BEHIND THE SYSTEMS</span><span>CURIOUS BY DEFAULT.</span></div><h2 className="display-heading">ABOUT<span className="outline-word"> ME.</span></h2></Reveal>
+    <div className="about-layout">
+      <Reveal className="about-symbol"><ArrowUpRight size={220} strokeWidth={.7}/><span>AI ENGINEER.<br/>FOUNDER. BUILDER.</span></Reveal>
+      <Reveal className="about-note" delay={.1}>
+        <h3>Building AI systems that work <em>beyond the demo.</em></h3>
+        <p>I build LLM applications across model adaptation, tool integration and evaluation: native desktop AI, serverless conversational systems and reproducible multi-agent experiments.</p>
+        <p>I build AI systems across LLM fine-tuning, AI agents, conversational AI, automation, model evaluation and full-stack application development.</p>
+        <p>My engineering work connects model inference to useful software: native Windows actions, persistent conversation memory, model API orchestration and application interfaces. As Founder &amp; AI Engineer at XYVERION AI, I own the path from model adaptation to working desktop and web demonstrations.</p>
+        <p>My Apart Sprint research evaluates a four-agent benchmark across 630 saved LLM trajectories. Professional model evaluation experience informs how I test grounding, failure modes and output quality.</p>
+        <div className="about-tags">{keywords.map(x => <span key={x}>{x}</span>)}</div>
+        <a className="text-link" href={resumeHref} download="Durgesh-Unde-Resume.pdf">Download my resume <Download size={17}/></a>
       </Reveal>
-      <div className="about-layout">
-        <Reveal delay={0.06} className="about-note">
-          <div className="editorial-number">01</div>
-          <p>
-            My engineering work connects model inference to useful software: native Windows actions,
-            persistent conversation memory, model API orchestration and application interfaces.
-            As Founder &amp; AI Engineer at XYVERION AI, I own the path from model adaptation to working desktop and web demonstrations.
-          </p>
-          <p style={{ marginTop: '16px', color: '#9fa9a7' }}>
-            My Apart Sprint research evaluates a four-agent benchmark across 630 saved LLM trajectories.
-            Professional model evaluation experience informs how I test grounding, failure modes and output quality.
-          </p>
-          <span className="line-accent" />
-        </Reveal>
-        <Reveal delay={0.12} className="keyword-field">
-          <div className="keyword-card keyword-main">
-            <Sparkles size={18} />
-            <span>
-              Core Technical
-              <br />
-              <strong>Focus Areas</strong>
-            </span>
-          </div>
-          {keywords.map((x, i) => (
-            <span className={`keyword keyword-${i}`} key={x}>
-              {x}
-            </span>
-          ))}
-        </Reveal>
-      </div>
-    </section>
-  );
+    </div>
+  </div></section>;
 }
 
 function Experience() {
@@ -598,7 +469,7 @@ function Experience() {
     <section className="experience section page-width" id="experience">
       <Reveal>
         <SectionIntro
-          eyebrow="02 / TRACK RECORD"
+          eyebrow="03 / TRACK RECORD"
           title={'Professional experience &amp; <em>technical evidence.</em>'}
           copy="My track record developing autonomous local AI systems, building software workflows, and conducting systematic model evaluation under strict rubrics."
         />
@@ -609,6 +480,7 @@ function Experience() {
             <button
               className={`timeline-trigger ${active === i ? 'active' : ''}`}
               key={item.company}
+              aria-pressed={active === i}
               onClick={() => setActive(i)}
             >
               <span className="timeline-index">
@@ -658,7 +530,7 @@ function SelectedWork({ onNavigate }) {
     <section className="selected-work-section section page-width" id="work">
       <Reveal>
         <SectionIntro
-          eyebrow="03 / SELECTED WORK"
+          eyebrow="02 / SELECTED WORK"
           title={'Practical AI software &amp; <em>model systems.</em>'}
           copy="Engineering work across local model adaptation, desktop agent systems and serverless conversational applications."
         />
@@ -714,7 +586,7 @@ function SelectedWork({ onNavigate }) {
             </div>
           </div>
 
-          <div className="feature-card-preview" onClick={() => onNavigate('xyverion')}>
+          <button type="button" aria-label="Explore XYVERION 3.0 case study" className="feature-card-preview" onClick={() => onNavigate('xyverion')}>
             <img
               src={dashboardImg}
               alt="XYVERION 3.0 desktop interface preview"
@@ -723,7 +595,7 @@ function SelectedWork({ onNavigate }) {
             <div className="preview-overlay">
               <span>View Full Case Study &amp; Technical Breakdown <ArrowUpRight size={14} /></span>
             </div>
-          </div>
+          </button>
         </div>
       </Reveal>
       <Reveal delay={0.08}>
@@ -745,12 +617,24 @@ function SelectedWork({ onNavigate }) {
 
 function ScreenshotLightbox({ image, caption, onClose }) {
   useEffect(() => {
-    const fn = (e) => e.key === 'Escape' && onClose();
+    const previousFocus = document.activeElement;
+    const dialog = document.querySelector('.research-modal, .lightbox-content');
+    const focusables = () => [...(dialog?.querySelectorAll('button, a[href], [tabindex="0"]') || [])];
+    focusables()[0]?.focus();
+    const fn = e => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'Tab') {
+        const list = focusables(), first = list[0], last = list.at(-1);
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+      }
+    };
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', fn);
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', fn);
+      previousFocus?.focus();
     };
   }, [onClose]);
 
@@ -762,7 +646,7 @@ function ScreenshotLightbox({ image, caption, onClose }) {
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
-      <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+      <div className="lightbox-content" role="dialog" aria-modal="true" aria-label={caption} onClick={(e) => e.stopPropagation()}>
         <button className="lightbox-close" onClick={onClose} aria-label="Close image preview">
           <X size={20} />
         </button>
@@ -775,6 +659,7 @@ function ScreenshotLightbox({ image, caption, onClose }) {
 
 function XyverionCaseStudy() {
   const [activeImage, setActiveImage] = useState(null);
+  const closeImage = React.useCallback(() => setActiveImage(null), []);
 
   const stages = [
     [
@@ -832,7 +717,7 @@ function XyverionCaseStudy() {
         {/* SCREENSHOT GALLERY */}
         <Reveal delay={0.06}>
           <div className="screenshot-gallery">
-            <div className="gallery-card primary-card" onClick={() => setActiveImage({ src: dashboardImg, caption: 'XYVERION 3.0 desktop interface' })}>
+            <button type="button" className="gallery-card primary-card" onClick={() => setActiveImage({ src: dashboardImg, caption: 'XYVERION 3.0 desktop interface' })}>
               <div className="gallery-img-wrap">
                 <img
                   src={dashboardImg}
@@ -847,9 +732,9 @@ function XyverionCaseStudy() {
                 <strong>XYVERION 3.0 desktop interface</strong>
                 <span>Home dashboard with multi-mode reasoning controls and neural engine status</span>
               </div>
-            </div>
+            </button>
 
-            <div className="gallery-card secondary-card" onClick={() => setActiveImage({ src: chatImg, caption: 'Local AI system / working UI' })}>
+            <button type="button" className="gallery-card secondary-card" onClick={() => setActiveImage({ src: chatImg, caption: 'Local AI system / working UI' })}>
               <div className="gallery-img-wrap">
                 <img
                   src={chatImg}
@@ -864,7 +749,7 @@ function XyverionCaseStudy() {
                 <strong>Local AI system / working UI</strong>
                 <span>Active conversational workspace with reasoning protocols and context inspector</span>
               </div>
-            </div>
+            </button>
           </div>
         </Reveal>
 
@@ -979,7 +864,7 @@ function XyverionCaseStudy() {
           <ScreenshotLightbox
             image={activeImage.src}
             caption={activeImage.caption}
-            onClose={() => setActiveImage(null)}
+            onClose={closeImage}
           />
         )}
       </AnimatePresence>
@@ -1033,6 +918,7 @@ function Capabilities() {
             <button
               className={selected === key ? 'selected' : ''}
               key={key}
+              aria-pressed={selected === key}
               onClick={() => setSelected(key)}
             >
               <span>0{i + 1}</span>
@@ -1312,12 +1198,24 @@ function Contact() {
 
 function ResearchModal({ item, onClose }) {
   useEffect(() => {
-    const fn = (e) => e.key === 'Escape' && onClose();
+    const previousFocus = document.activeElement;
+    const dialog = document.querySelector('.research-modal, .lightbox-content');
+    const focusables = () => [...(dialog?.querySelectorAll('button, a[href], [tabindex="0"]') || [])];
+    focusables()[0]?.focus();
+    const fn = e => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'Tab') {
+        const list = focusables(), first = list[0], last = list.at(-1);
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+      }
+    };
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', fn);
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', fn);
+      previousFocus?.focus();
     };
   }, [onClose]);
 
@@ -1398,8 +1296,9 @@ function ResearchModal({ item, onClose }) {
 
 function App() {
   const [modal, setModal] = useState(null);
+  const closeModal = React.useCallback(() => setModal(null), []);
   const reduced = useReducedMotion();
-  const navigate = (id) => document.getElementById(id)?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+  const navigate = (id) => { document.getElementById(id)?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); history.replaceState(null, '', `#${id}`); };
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = reduced ? 'auto' : 'smooth';
@@ -1408,23 +1307,18 @@ function App() {
     };
   }, [reduced]);
 
-  useEffect(() => {
-    if (reduced || !matchMedia('(pointer: fine)').matches) return;
-    const cards = [...document.querySelectorAll('.flagship-feature-card')];
-    const move = (event) => { const card=event.currentTarget;const r=card.getBoundingClientRect();card.style.setProperty('--tilt-x',`${-(event.clientY-r.top-r.height/2)/r.height*3}deg`);card.style.setProperty('--tilt-y',`${(event.clientX-r.left-r.width/2)/r.width*4}deg`); };
-    const leave = (event) => {event.currentTarget.style.setProperty('--tilt-x','0deg');event.currentTarget.style.setProperty('--tilt-y','0deg');};
-    cards.forEach(card=>{card.addEventListener('pointermove',move);card.addEventListener('pointerleave',leave);});
-    return()=>cards.forEach(card=>{card.removeEventListener('pointermove',move);card.removeEventListener('pointerleave',leave);});
-  },[reduced]);
 
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Header onNavigate={navigate} />
-      <main>
+      <MotionControls /><InteractionEffects />
+      <main id="main-content">
         <Hero onNavigate={navigate} />
+        <TechMarquee />
         <About />
-        <Experience />
         <SelectedWork onNavigate={navigate} />
+        <Experience />
         <XyverionCaseStudy />
         <WhatIBuild />
         <Capabilities />
@@ -1456,10 +1350,10 @@ function App() {
         </div>
       </footer>
       <AnimatePresence>
-        {modal && <ResearchModal item={modal} onClose={() => setModal(null)} />}
+        {modal && <ResearchModal item={modal} onClose={closeModal} />}
       </AnimatePresence>
     </>
   );
 }
 
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById('root')).render(<MotionProvider><App /></MotionProvider>);

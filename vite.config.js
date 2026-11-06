@@ -4,4 +4,5 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: '/durgesh-unde-portfolio/',
   plugins: [react()],
+  server: { allowedHosts: ['terminal.local'] },
 });

@@ -1,0 +1,122 @@
+.visual-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .5;
+  background-image: linear-gradient(rgba(165,229,219,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(165,229,219,.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle, #000 0%, transparent 75%);
+}
+.visual-cyan { background: radial-gradient(circle at 60% 55%, rgba(86,200,185,.15), transparent 37%), #0d1718; }
+.visual-amber { background: radial-gradient(circle at 50% 50%, rgba(229,171,85,.15), transparent 33%), #17130e; }
+.visual-violet { background: radial-gradient(circle at 50% 50%, rgba(144,128,244,.15), transparent 36%), #110f18; }
+.visual-green { background: radial-gradient(circle at 50% 50%, rgba(145,203,129,.14), transparent 38%), #0e1712; }
+.visual-rose { background: radial-gradient(circle at 50% 50%, rgba(238,147,174,.15), transparent 37%), #180f14; }
+.visual-shield {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 86px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  border: 1px solid rgba(165,229,219,.5);
+  clip-path: polygon(50% 0, 90% 16%, 82% 72%, 50% 100%, 18% 72%, 10% 16%);
+  background: rgba(165,229,219,.06);
+}
+.threat-path { position: absolute; height: 1px; background: var(--cyan); transform-origin: left; opacity: .55; }
+.path-1 { width: 42%; left: 10%; top: 34%; transform: rotate(31deg); }
+.path-2 { width: 37%; right: 7%; top: 67%; transform: rotate(-27deg); background: var(--amber); }
+.visual-code { position: absolute; bottom: 18px; left: 20px; color: rgba(190,223,215,.5); font: 9px 'DM Mono', monospace; letter-spacing: .12em; }
+
+.scan-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 140px;
+  height: 115px;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(235,190,118,.45);
+  padding: 16px;
+  display: grid;
+  gap: 9px;
+  background: rgba(235,190,118,.05);
+}
+.scan-card div { height: 1px; background: rgba(235,190,118,.4); }
+.scan-card div:nth-child(2) { width: 70%; }
+.scan-card div:nth-child(3) { width: 42%; }
+.scan-line {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  top: 49%;
+  border-top: 1px dashed rgba(235,190,118,.5);
+}
+.scan-label { position: absolute; left: 20px; bottom: 18px; color: rgba(235,190,118,.6); font: 9px 'DM Mono', monospace; letter-spacing: .12em; }
+
+.news-card {
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  transform: translate(-50%,-50%) rotate(-4deg);
+  width: 180px;
+  height: 110px;
+  border: 1px solid rgba(184,176,243,.45);
+  padding: 15px;
+  background: rgba(184,176,243,.06);
+}
+.news-card span { color: var(--violet); font: 9px 'DM Mono', monospace; letter-spacing: .13em; }
+.news-card b { display: block; margin-top: 12px; font: 20px 'Playfair Display', serif; color: #e3dfff; }
+.news-card small { position: absolute; bottom: 14px; color: #9990d0; font: 9px 'DM Mono', monospace; }
+.news-pulse {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  right: 23%;
+  top: 25%;
+  border-radius: 50%;
+  background: var(--violet);
+  box-shadow: 0 0 16px rgba(184,176,243,.6);
+}
+.climate-orbit {
+  position: absolute;
+  border: 1px solid rgba(175,215,164,.35);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) rotate(26deg);
+}
+.orbit-a { width: 170px; height: 90px; }
+.climate-core {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(175,215,164,.15);
+  border: 1px solid var(--green);
+  box-shadow: 0 0 24px rgba(175,215,164,.25);
+}
+.gen-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--rose);
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(242,185,199,.5);
+}
+.n1 { left: 25%; top: 33%; }
+.n2 { left: 47%; top: 19%; }
+.n3 { left: 72%; top: 38%; }
+.gen-line {
+  height: 1px;
+  position: absolute;
+  transform-origin: left;
+  background: rgba(242,185,199,.5);
+}
+.l1 { width: 22%; left: 30%; top: 36%; transform: rotate(-29deg); }
+.l2 { width: 27%; left: 51%; top: 23%; transform: rotate(24deg); }
+
