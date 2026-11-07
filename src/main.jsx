@@ -29,7 +29,7 @@ import {
 import './styles.css';
 import { MotionProvider, MotionControls, InteractionEffects, TechMarquee, useMotionPreference as useReducedMotion } from './MotionSystem';
 import ApartResearch from './ApartResearch';
-const portraitHref = `${import.meta.env.BASE_URL}assets/durgesh-selected.webp`;
+const portraitHref = `${import.meta.env.BASE_URL}assets/durgesh-cutout.webp`;
 
 const assetBase = import.meta.env.BASE_URL;
 const resumeHref = `${assetBase}assets/durgesh-unde-resume.pdf`;
@@ -422,7 +422,7 @@ function Hero({ onNavigate }) {
     <motion.div className="hero-availability" {...intro}><span className="status-dot"/> OPEN TO OPPORTUNITIES<small>Shrirampur / Pune, India</small></motion.div>
     <div className="hero-name-clip"><motion.h1 style={{ x: reduced ? 0 : textX }} initial={reduced ? false : { y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1.2, ease: [.16, 1, .3, 1], delay: .1 }}><span>DURGESH</span>{' '}<span>UNDE</span></motion.h1></div>
     <motion.div className="portrait-stage" style={{ y: reduced ? 0 : photoY }} initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: .15 }}>
-      <img className="hero-portrait" src={portraitHref} alt="Durgesh Unde, AI Engineer and founder of XYVERION AI" width="1536" height="1152" fetchPriority="high" />
+      <img className="hero-portrait" src={portraitHref} alt="Durgesh Unde, AI Engineer and founder of XYVERION AI" width="1448" height="1086" fetchPriority="high" />
     </motion.div>
     <div className="hero-bottom-left"><span>TURNING INTELLIGENCE<br/>INTO REAL-WORLD SOFTWARE.</span><button className="pill-button" onClick={() => onNavigate('work')}>Explore my work <ArrowUpRight size={20}/></button></div>
     <button className="hero-scroll" onClick={() => onNavigate('about')}><span>Scroll to explore</span><ArrowDownRight size={56} strokeWidth={1}/></button>

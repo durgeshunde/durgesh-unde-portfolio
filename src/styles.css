@@ -48,9 +48,9 @@ body{min-width:280px}
 @media(max-width:540px){.nav-wrap nav.open{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 16px}.nav-wrap nav a{white-space:normal;font-size:10px;line-height:1.5}.nav-resume{white-space:nowrap}.nav-wrap nav{overflow-x:hidden}}
 @media(max-width:360px){.brand small{display:none}.brand{font-size:10px;gap:8px}.nav-resume{padding:0 8px;font-size:7px}.nav-wrap{gap:6px}.hero-availability{max-width:115px;font-size:5.5px;right:18px}}
 
-/* User-selected photograph: preserve the source face and body without generation. */
+/* Transparent portrait: only the subject occludes the hero lettering. */
 .portrait-hero{background:#fdfdfd}
 .portrait-stage{height:82%;max-height:760px;width:min(950px,76vw);margin-left:calc(min(950px,76vw) / -2);bottom:-1px}
-.hero-portrait{position:absolute;bottom:0;left:0;width:100%;height:auto;object-fit:contain;object-position:center bottom;filter:none;clip-path:polygon(25% 0,75% 0,76% 55%,68% 65%,88% 79%,100% 100%,0 100%,12% 79%,34% 65%,25% 55%)}
+.hero-portrait{position:absolute;bottom:0;left:0;width:100%;height:auto;object-fit:contain;object-position:center bottom;filter:none;clip-path:none}
 @media(max-width:820px){.portrait-stage{height:78%;width:110vw;margin-left:-55vw;max-height:none}}
 @media(max-width:540px){.portrait-stage{height:75%;width:145vw;margin-left:-72.5vw;max-height:none}.hero-name-clip{top:36%}}
