@@ -18,6 +18,7 @@ import {
   Menu,
   MessageSquare,
   Network,
+  Phone,
   ShieldCheck,
   Sparkles,
   Terminal,
@@ -1175,7 +1176,7 @@ function Contact() {
               <Mail size={16} /> durgeshunde@gmail.com
             </a>
             <a href="tel:+919322323097">
-              <span className="phone-icon">+</span> +91 93223 23097
+              <Phone size={16} aria-hidden="true" /> +91 93223 23097
             </a>
             <span>
               <span className="pin-icon">⌖</span> Shrirampur / Pune, Maharashtra, India
@@ -1187,7 +1188,7 @@ function Contact() {
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn <small>durgesh-u-89911241b</small>
+              LinkedIn <small>durgesh-unde-89911241b</small>
             </a>
           </div>
         </div>
@@ -1298,7 +1299,16 @@ function App() {
   const [modal, setModal] = useState(null);
   const closeModal = React.useCallback(() => setModal(null), []);
   const reduced = useReducedMotion();
-  const navigate = (id) => { document.getElementById(id)?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); history.replaceState(null, '', `#${id}`); };
+  const navigate = (id) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    section.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    history.replaceState(null, '', `#${id}`);
+    // Keep keyboard navigation at the destination after the mobile menu closes.
+    const heading = section.querySelector('h1, h2') || section;
+    heading.tabIndex = -1;
+    heading.focus({ preventScroll: true });
+  };
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = reduced ? 'auto' : 'smooth';
